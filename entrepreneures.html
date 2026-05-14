@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pour les entrepreneures de cœur · Jenny Moreau-Sonko · Au cœur d'elles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bleu-profond: #2a4a6b;
+      --bleu-moyen: #738fbd;
+      --bleu-ciel: #a8c3d4;
+      --rose: #e8c4d0;
+      --rose-mauve: #db88a4;
+      --rose-clair: #f5eef2;
+      --blanc: #fdfafa;
+      --blanc-pur: #ffffff;
+      --gris-doux: #f0ecf0;
+      --texte-fonce: #4a5a7a;
+      --texte-moyen: #7a8aaa;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--blanc);
+      color: var(--texte-fonce);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(253, 250, 250, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(42, 74, 107, 0.08);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--bleu-moyen);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--rose-mauve); }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--texte-moyen);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--bleu-profond); }
+
+
+    /* SOUS-MENU */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after { content: " ▾"; font-size: 0.6rem; opacity: 0.6; }
+    .nav-submenu {
+      position: absolute; top: calc(100% + 1rem); left: 50%;
+      transform: translateX(-50%);
+      background: rgba(253, 250, 250, 0.98); backdrop-filter: blur(12px);
+      border: 1px solid rgba(42, 74, 107, 0.08); border-radius: 12px;
+      padding: 0.8rem 0; min-width: 220px;
+      box-shadow: 0 8px 30px rgba(42, 74, 107, 0.1);
+      opacity: 0; visibility: hidden;
+      transform: translateX(-50%) translateY(-8px);
+      transition: all 0.25s ease; z-index: 200;
+    }
+    .nav-dropdown:hover .nav-submenu {
+      opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+    }
+    .nav-submenu a {
+      display: block; padding: 0.65rem 1.5rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.78rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: #7a8aaa; text-decoration: none;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-submenu a:hover { color: #2a4a6b; background: rgba(232,196,208,0.15); padding-left: 2rem; }
+
+    /* HERO */
+    .hero {
+      min-height: 65vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 10rem 10vw 5rem; margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      background: var(--bleu-profond);
+    }
+
+    .circle-deco {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(232, 196, 208, 0.2);
+    }
+
+    .hc1 { width: 600px; height: 600px; top: -200px; right: -150px; }
+    .hc2 { width: 420px; height: 420px; top: -100px; right: -60px; border-color: rgba(219, 136, 164, 0.15); }
+    .hc3 { width: 260px; height: 260px; top: -20px; right: 30px; }
+
+    .star {
+      position: absolute;
+      width: 12px; height: 12px;
+      opacity: 0.6;
+      animation: twinkle 4s ease-in-out infinite;
+    }
+
+    .star::before {
+      content: '✦';
+      font-size: 12px;
+      color: #b8c4cc;
+      text-shadow: 0 0 6px rgba(184, 196, 204, 0.9);
+      position: absolute;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    .hero-content { max-width: 680px; padding-left: 0; }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose-mauve);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: #ffffff;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+
+    .hero-title em { font-style: italic; color: var(--rose); }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-top: 1.5rem;
+      line-height: 1.6;
+      max-width: 550px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* POUR QUI */
+    .pour-qui-section {
+      padding: 7rem 4rem;
+      background: var(--blanc);
+      text-align: center;
+    }
+
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--rose-mauve);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: var(--bleu-profond);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .section-title em { font-style: italic; color: var(--rose-mauve); }
+
+    .section-intro {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--texte-moyen);
+      max-width: 580px;
+      margin: 0 auto 4rem;
+      line-height: 1.9;
+    }
+
+    .pour-qui-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pour-qui-card {
+      background: var(--rose);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: left;
+    }
+
+    .pour-qui-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: block;
+      color: var(--bleu-profond);
+    }
+
+    .pour-qui-card p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: #ffffff;
+      line-height: 1.7;
+    }
+
+    /* CE QU'ON CONSTRUIT */
+    .offre-section {
+      padding: 7rem 4rem;
+      background: var(--gris-doux);
+    }
+
+    .offre-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .offre-content .section-label,
+    .offre-content .section-title {
+      text-align: left;
+      margin-bottom: 1.2rem;
+    }
+
+    .offre-content .section-intro {
+      text-align: left;
+      margin: 0 0 2rem;
+      max-width: 100%;
+    }
+
+    .offre-piliers { margin-top: 1rem; }
+
+    .offre-pilier {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(115, 143, 189, 0.15);
+    }
+
+    .offre-pilier:last-child { border-bottom: none; margin-bottom: 0; }
+
+    .pilier-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--rose);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .pilier-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--bleu-profond);
+      margin-bottom: 0.4rem;
+    }
+
+    .pilier-content p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--texte-moyen);
+      line-height: 1.7;
+    }
+
+    /* CARTE TARIF */
+    .tarif-card {
+      background: var(--bleu-profond);
+      border-radius: 28px;
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      position: sticky;
+      top: 8rem;
+    }
+
+    .tarif-card::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgba(232, 196, 208, 0.15);
+      top: -100px; right: -100px;
+    }
+
+    .tarif-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose-mauve);
+      margin-bottom: 1rem;
+    }
+
+    .tarif-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .tarif-name em { font-style: italic; color: var(--rose); }
+
+    .tarif-details {
+      margin: 2rem 0;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .tarif-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .tarif-detail span { color: var(--rose-mauve); }
+    .tarif-detail:last-child { margin-bottom: 0; }
+
+    .tarif-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: #ffffff;
+      margin-bottom: 0.3rem;
+    }
+
+    .tarif-price-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      display: block;
+      padding: 1rem 2.5rem;
+      background: var(--rose-mauve);
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(219, 136, 164, 0.3);
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background: #cc8eb1;
+      transform: translateY(-2px);
+    }
+
+    /* GALERIE */
+    .galerie-section {
+      padding: 7rem 4rem;
+      background: var(--blanc);
+    }
+
+    .galerie-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 3rem auto 0;
+    }
+
+    .galerie-item {
+      aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--gris-doux);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .galerie-placeholder {
+      text-align: center;
+      color: var(--texte-moyen);
+    }
+
+    .galerie-placeholder p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      margin-top: 0.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .galerie-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(42, 74, 107, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .galerie-item:hover .galerie-overlay { opacity: 1; }
+
+    .galerie-overlay a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    /* TÉMOIGNAGE */
+    .temoignage-section {
+      padding: 6rem 4rem;
+      background: var(--rose);
+      text-align: center;
+    }
+
+    .temoignage-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #ffffff;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .temoignage-auteur {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* CTA FINAL */
+    .cta-section {
+      padding: 6rem 4rem;
+      background: var(--gris-doux);
+      text-align: center;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bleu-profond);
+      padding: 3rem 4rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--blanc-pur);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo span { color: var(--rose-mauve); }
+
+    .footer-tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    .footer-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--rose-mauve); }
+
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { display: none; }
+      .hero { padding: 8rem 2rem 4rem; margin: 0 auto; }
+      .pour-qui-section { padding: 5rem 2rem; }
+      .pour-qui-grid { grid-template-columns: 1fr; }
+      .offre-section { padding: 5rem 2rem; }
+      .offre-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .tarif-card { position: static; }
+      .galerie-section { padding: 5rem 2rem; }
+      .galerie-grid { grid-template-columns: 1fr 1fr; }
+      .temoignage-section { padding: 4rem 2rem; }
+      .cta-section { padding: 4rem 2rem; }
+      footer { padding: 2.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Au <span>cœur</span> d'elles</a>
+        <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="accompagnement.html">Espaces</a>
+        <div class="nav-submenu">
+          <a href="accompagnement.html">Séances individuelles</a>
+          <a href="experiences.html">Expériences</a>
+          <a href="entrepreneures.html">Entrepreneures de cœur</a>
+        </div>
+      </li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="circle-deco hc1"></div>
+    <div class="circle-deco hc2"></div>
+    <div class="circle-deco hc3"></div>
+    <div class="star" style="top: 20%; left: 60%; animation-delay: 0s;"></div>
+    <div class="star" style="top: 40%; left: 75%; animation-delay: 1.5s;"></div>
+    <div class="star" style="top: 65%; left: 80%; animation-delay: 2.8s;"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Pour les entrepreneures de cœur</p>
+      <h1 class="hero-title">Une entreprise<br>à ton <em>image</em></h1>
+      <p class="hero-subtitle">
+        On construit ensemble ton univers digital pour qu'il te ressemble vraiment.
+      </p>
+    </div>
+  </section>
+
+  <!-- POUR QUI -->
+  <section class="pour-qui-section">
+    <p class="section-label">Pour toi si…</p>
+    <h2 class="section-title">Tu te reconnais <em>ici</em></h2>
+
+    <div class="pour-qui-grid">
+      <div class="pour-qui-card">
+        <span class="icon">✦</span>
+        <p>Tu as une belle offre mais tu ne sais pas comment la mettre en mots ni la rendre visible en ligne.</p>
+      </div>
+      <div class="pour-qui-card">
+        <span class="icon">◯</span>
+        <p>Tu veux un site et une présence Instagram qui reflètent vraiment qui tu es, pas un template générique.</p>
+      </div>
+      <div class="pour-qui-card">
+        <span class="icon">❋</span>
+        <p>Tu as besoin d'être accompagnée pas à pas, par quelqu'un qui comprend ton univers et ta façon de créer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CE QU'ON CONSTRUIT -->
+  <section class="offre-section">
+    <div class="offre-inner">
+
+      <div class="offre-content">
+        <p class="section-label">L'accompagnement</p>
+        <h2 class="section-title">Ce qu'on <em>construit ensemble</em></h2>
+        <p class="section-intro">
+          Sur 3 mois, on pose les fondations de ton univers digital, de façon alignée, à ton rythme, depuis ton cœur.
+        </p>
+
+        <div class="offre-piliers">
+          <div class="offre-pilier">
+            <div class="pilier-icon">🌐</div>
+            <div class="pilier-content">
+              <h3>Ton site vitrine</h3>
+              <p>Un site qui te ressemble, clair, beau et fonctionnel. On clarifie ton message, on structure tes pages, on crée un espace digital à ton image.</p>
+            </div>
+          </div>
+
+          <div class="offre-pilier" style="border-top: 1px dashed rgba(219,136,164,0.3); padding-top: 2rem; margin-top: 1rem;">
+            <div class="pilier-icon">✦</div>
+            <div class="pilier-content">
+              <h3>Option · +250€</h3>
+              <p>Stratégie Instagram + création de visuels pour une présence en ligne complète et alignée.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARTE TARIF -->
+      <div>
+        <div class="tarif-card">
+          <p class="tarif-label">L'offre</p>
+          <h3 class="tarif-name">Accompagnement<br><em>3 mois</em></h3>
+          <div class="tarif-details">
+            <div class="tarif-detail"><span>✦</span> Site vitrine inclus</div>
+            <div class="tarif-detail"><span>◯</span> Suivi personnalisé sur 3 mois</div>
+            <div class="tarif-detail"><span>◯</span> À distance, à ton rythme</div>
+          </div>
+          <p class="tarif-price">1 500€</p>
+          <p class="tarif-price-label">accompagnement complet · 3 mois</p>
+          <div style="background: rgba(232,196,208,0.15); border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1.5rem;">
+            <p style="font-family: 'DM Sans', sans-serif; font-size: 0.78rem; color: var(--rose-mauve); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.3rem;">Option</p>
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #ffffff; margin-bottom: 0.2rem;">Stratégie Instagram + visuels</p>
+            <p style="font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.6);">+ 250€</p>
+          </div>
+          <a href="index.html#contact" class="btn-primary">Parlons-en</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES -->
+  <section style="padding: 7rem 4rem; background: var(--gris-doux);">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <p class="section-label" style="text-align:center;">Elles témoignent</p>
+      <h2 class="section-title" style="text-align:center; margin-bottom:4rem;">Ce qu'elles <em>disent</em></h2>
+
+      <!-- Témoignage Nathalie -->
+      <div style="background: var(--blanc-pur); border-radius: 24px; padding: 3rem; margin-bottom: 2rem; box-shadow: 0 4px 30px rgba(42,74,107,0.06);">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; font-weight: 300; color: var(--texte-fonce); line-height: 1.9; margin-bottom: 2rem;">
+          "Jenny ne construit pas seulement un site : c'est un accompagnement personnalisé pour vous mettre en lumière, ainsi que vos compétences. Si vous êtes thérapeute et que vous avez envie de franchir le pas, comme moi, vous pouvez la contacter en toute confiance. Elle a également réalisé mes cartes de visite et mes flyers. Merci Jenny pour ce site et cet accompagnement."
+        </p>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--rose); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--bleu-profond); flex-shrink: 0;">N</div>
+          <div>
+            <p style="font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 500; color: var(--bleu-profond);">Nathalie</p>
+            <p style="font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--texte-moyen); letter-spacing: 0.05em;">Thérapeute · <a href="https://www.nathaliegaignard.com" target="_blank" style="color: var(--rose-mauve); text-decoration: none;">nathaliegaignard.com</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Témoignage Suzie -->
+      <div style="background: var(--blanc-pur); border-radius: 24px; padding: 3rem; box-shadow: 0 4px 30px rgba(42,74,107,0.06);">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; font-weight: 300; color: var(--texte-fonce); line-height: 1.9; margin-bottom: 2rem;">
+          "Jenny est de ces rares personnes qui allient compétence, initiative et qualité de présence. Elle saisit avec finesse les besoins et les traduit en actions concrètes, structurées et pertinentes. Faire appel à Jenny, c'est s'offrir bien plus qu'un service : c'est choisir une collaboration solide, intelligente et profondément soutenante. Elle se distingue par une fiabilité exemplaire et une capacité d'initiative remarquable. Jenny ne se contente pas d'exécuter : elle s'engage pleinement, anticipe, propose, ajuste et trouve des solutions avec une débrouillardise et une intelligence d'action qui font réellement la différence. Sa manière de travailler est fluide, rigoureuse et humaine. Je lui accorde une confiance entière et la recommande avec la plus grande conviction."
+        </p>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--bleu-ciel); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--bleu-profond); flex-shrink: 0;">S</div>
+          <div>
+            <p style="font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 500; color: var(--bleu-profond);">Suzie Rochefort</p>
+            <p style="font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--texte-moyen); letter-spacing: 0.05em;">Psychologue · Fondatrice de l'Académie Reconnexion · <a href="https://www.academie-reconnexion.com" target="_blank" style="color: var(--rose-mauve); text-decoration: none;">academie-reconnexion.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <p class="section-label">Envie d'en savoir plus ?</p>
+    <h2 class="section-title">Prête à <em>mettre au monde tes projets de cœur ?</em></h2>
+    <p class="section-intro" style="margin-bottom:2.5rem;">
+      Si quelque chose en toi a résonné, parlons-en. Un premier échange pour voir si on est faites pour travailler ensemble.
+    </p>
+    <a href="index.html#contact" class="btn-primary" style="display:inline-block; width:auto; padding: 1rem 3rem;">Écris-moi</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">Au <span>cœur</span> d'elles</p>
+    <p class="footer-tagline">Jenny Moreau-Sonko · Accompagnante en reconnexion</p>
+    <ul class="footer-links">
+      <li><a href="accompagnement.html">Accompagnement</a></li>
+      <li><a href="experiences.html">Expériences</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <p style="margin-bottom:0.8rem;"><a href="mentions-legales.html" style="font-family: DM Sans, sans-serif; font-size: 0.68rem; color: rgba(255,255,255,0.4); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase;">Mentions légales</a></p>
+    <p class="footer-copy">© 2026 Jenny Moreau-Sonko · Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

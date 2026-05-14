@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accompagnement · Jenny Moreau-Sonko · Au cœur d'elles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bleu-profond: #2a4a6b;
+      --bleu-moyen: #738fbd;
+      --bleu-ciel: #a8c3d4;
+      --bleu-pale: #dbd6df;
+      --rose: #e8c4d0;
+      --rose-mauve: #db88a4;
+      --rose-clair: #f5eef2;
+      --blanc: #fdfafa;
+      --blanc-pur: #ffffff;
+      --gris-doux: #f0ecf0;
+      --texte-fonce: #4a5a7a;
+      --texte-moyen: #7a8aaa;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--blanc);
+      color: var(--texte-fonce);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(253, 250, 250, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(42, 74, 107, 0.08);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--bleu-moyen);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--rose-mauve); }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--texte-moyen);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--bleu-profond); }
+
+
+    /* SOUS-MENU */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after { content: " ▾"; font-size: 0.6rem; opacity: 0.6; }
+    .nav-submenu {
+      position: absolute; top: calc(100% + 1rem); left: 50%;
+      transform: translateX(-50%);
+      background: rgba(253, 250, 250, 0.98); backdrop-filter: blur(12px);
+      border: 1px solid rgba(42, 74, 107, 0.08); border-radius: 12px;
+      padding: 0.8rem 0; min-width: 220px;
+      box-shadow: 0 8px 30px rgba(42, 74, 107, 0.1);
+      opacity: 0; visibility: hidden;
+      transform: translateX(-50%) translateY(-8px);
+      transition: all 0.25s ease; z-index: 200;
+    }
+    .nav-dropdown:hover .nav-submenu {
+      opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+    }
+    .nav-submenu a {
+      display: block; padding: 0.65rem 1.5rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.78rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: #7a8aaa; text-decoration: none;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-submenu a:hover { color: #2a4a6b; background: rgba(232,196,208,0.15); padding-left: 2rem; }
+
+    /* HERO */
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 10rem 10vw 5rem; margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      background: var(--bleu-profond);
+    }
+
+    .circle-deco {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(232, 196, 208, 0.2);
+    }
+
+    .hc1 { width: 600px; height: 600px; top: -200px; right: -150px; }
+    .hc2 { width: 420px; height: 420px; top: -100px; right: -60px; border-color: rgba(219, 136, 164, 0.15); }
+    .hc3 { width: 260px; height: 260px; top: -20px; right: 30px; }
+
+    .star {
+      position: absolute;
+      width: 12px; height: 12px;
+      opacity: 0.6;
+      animation: twinkle 4s ease-in-out infinite;
+    }
+
+    .star::before {
+      content: '✦';
+      font-size: 12px;
+      color: #b8c4cc;
+      text-shadow: 0 0 6px rgba(184, 196, 204, 0.9);
+      position: absolute;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    .hero-content { max-width: 680px; padding-left: 0; }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose-mauve);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: #ffffff;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+
+    .hero-title em { font-style: italic; color: var(--rose); }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-top: 1.5rem;
+      line-height: 1.6;
+      max-width: 550px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* MIROIR */
+    .miroir-section {
+      padding: 7rem 4rem;
+      background: var(--blanc);
+      text-align: center;
+    }
+
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--rose-mauve);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: var(--bleu-profond);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .section-title em { font-style: italic; color: var(--rose-mauve); }
+
+    .section-intro {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--texte-moyen);
+      max-width: 580px;
+      margin: 0 auto 4rem;
+      line-height: 1.9;
+    }
+
+    /* POUR QUI */
+    .pour-qui {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pour-qui-card {
+      background: var(--rose);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: left;
+    }
+
+    .pour-qui-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .pour-qui-card p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: #ffffff;
+      line-height: 1.7;
+    }
+
+    /* CE QUI SE PASSE */
+    .seance-section {
+      padding: 7rem 4rem;
+      background: var(--gris-doux);
+    }
+
+    .seance-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .seance-content .section-label,
+    .seance-content .section-title {
+      text-align: left;
+      margin-bottom: 1.2rem;
+    }
+
+    .seance-steps { margin-top: 2rem; }
+
+    .seance-step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--rose);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 40px;
+    }
+
+    .step-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--bleu-profond);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-content p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--texte-moyen);
+      line-height: 1.7;
+    }
+
+    /* CARTE OFFRE */
+    .offre-visual {
+      position: relative;
+    }
+
+    .offre-card {
+      background: var(--bleu-profond);
+      border-radius: 28px;
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .offre-card::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgba(232, 196, 208, 0.15);
+      top: -100px; right: -100px;
+    }
+
+    .offre-card::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 1px solid rgba(219, 136, 164, 0.1);
+      top: -50px; right: -50px;
+    }
+
+    .offre-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose-mauve);
+      margin-bottom: 1rem;
+    }
+
+    .offre-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .offre-name em { font-style: italic; color: var(--rose); }
+
+    .offre-details {
+      margin: 2rem 0;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .offre-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .offre-detail span { color: var(--rose-mauve); font-size: 1.15rem; }
+    .offre-detail:last-child { margin-bottom: 0; }
+
+    .offre-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: #ffffff;
+      margin-bottom: 0.3rem;
+    }
+
+    .offre-price-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+    }
+
+    /* BOUTONS */
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--rose-mauve);
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(219, 136, 164, 0.3);
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background: #cc8eb1;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(219, 136, 164, 0.4);
+    }
+
+    /* CITATION */
+    .citation-section {
+      padding: 6rem 4rem;
+      background: var(--rose);
+      text-align: center;
+    }
+
+    .citation-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #ffffff;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .citation-sig {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding: 7rem 4rem;
+      background: var(--blanc);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(115, 143, 189, 0.15);
+      padding: 2rem 0;
+    }
+
+    .faq-question {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--bleu-profond);
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-answer {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--texte-moyen);
+      line-height: 1.8;
+    }
+
+    /* CTA FINAL */
+    .cta-section {
+      padding: 6rem 4rem;
+      background: var(--gris-doux);
+      text-align: center;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bleu-profond);
+      padding: 3rem 4rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--blanc-pur);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo span { color: var(--rose-mauve); }
+
+    .footer-tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    .footer-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--rose-mauve); }
+
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { display: none; }
+      .hero { padding: 8rem 2rem 4rem; margin: 0 auto; }
+      .miroir-section { padding: 5rem 2rem; }
+      .pour-qui { grid-template-columns: 1fr; }
+      .seance-section { padding: 5rem 2rem; }
+      .seance-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .citation-section { padding: 4rem 2rem; }
+      .faq-section { padding: 5rem 2rem; }
+      .cta-section { padding: 4rem 2rem; }
+      footer { padding: 2.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Au <span>cœur</span> d'elles</a>
+        <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="accompagnement.html">Espaces</a>
+        <div class="nav-submenu">
+          <a href="accompagnement.html">Séances individuelles</a>
+          <a href="experiences.html">Expériences</a>
+          <a href="entrepreneures.html">Entrepreneures de cœur</a>
+        </div>
+      </li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="circle-deco hc1"></div>
+    <div class="circle-deco hc2"></div>
+    <div class="circle-deco hc3"></div>
+    <div class="star" style="top: 20%; left: 60%; animation-delay: 0s;"></div>
+    <div class="star" style="top: 40%; left: 75%; animation-delay: 1.5s;"></div>
+    <div class="star" style="top: 65%; left: 80%; animation-delay: 2.8s;"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Accompagnement individuel</p>
+      <h1 class="hero-title">Séance<br>d'<em>alignement</em></h1>
+      <p class="hero-subtitle">
+        Pour les femmes qui se sont perdues en chemin et qui cherchent à retrouver le sens, la direction, vers leurs aspirations profondes.
+      </p>
+    </div>
+  </section>
+
+  <!-- POUR QUI -->
+  <section class="miroir-section">
+    <p class="section-label">Pour toi si…</p>
+    <h2 class="section-title">Tu te reconnais <em>ici</em></h2>
+
+    <div class="pour-qui">
+      <div class="pour-qui-card">
+        <span class="icon">◯</span>
+        <p>Tu te sens perdue, déconnectée de toi-même, et tu ne sais plus très bien qui tu es en dehors de tes rôles.</p>
+      </div>
+      <div class="pour-qui-card">
+        <span class="icon">✦</span>
+        <p>Tu sens qu'il y a quelque chose à changer mais tu n'arrives pas à voir clairement la direction à prendre.</p>
+      </div>
+      <div class="pour-qui-card">
+        <span class="icon">❋</span>
+        <p>Tu aspires à quelque chose de plus aligné, de plus vrai, mais tu ne sais pas comment y aller.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CE QUI SE PASSE -->
+  <section class="seance-section">
+    <div class="seance-inner">
+      <div class="seance-content">
+        <p class="section-label">Ce qui se passe</p>
+        <h2 class="section-title">Une heure <em>pour toi</em></h2>
+        <div class="seance-steps">
+          <div class="seance-step">
+            <span class="step-number">01</span>
+            <div class="step-content">
+              <h3>Tu te déposes</h3>
+              <p>On crée ensemble un espace d'écoute profonde, sans jugement, où tu peux dire ce qui est vraiment là.</p>
+            </div>
+          </div>
+          <div class="seance-step">
+            <span class="step-number">02</span>
+            <div class="step-content">
+              <h3>Tu prends conscience</h3>
+              <p>On explore ce qui se joue en toi, les schémas, les croyances, ce qui te retient et ce qui t'appelle.</p>
+            </div>
+          </div>
+          <div class="seance-step">
+            <span class="step-number">03</span>
+            <div class="step-content">
+              <h3>Tu repars avec de la clarté</h3>
+              <p>Une direction, un mouvement, une prochaine étape concrète vers ce à quoi tu aspires vraiment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARTE OFFRE -->
+      <div class="offre-visual">
+        <div class="offre-card">
+          <p class="offre-label">L'offre</p>
+          <h3 class="offre-name">Séance<br>d'<em>alignement</em></h3>
+          <div class="offre-details">
+            <div class="offre-detail"><span>◯</span> En ligne · visioconférence</div>
+            <div class="offre-detail"><span>✦</span> Durée : 1 heure</div>
+            <div class="offre-detail"><span>❋</span> Espace confidentiel et bienveillant</div>
+          </div>
+          <p class="offre-price">70€</p>
+          <p class="offre-price-label">par séance</p>
+          <a href="https://calendly.com/jennymoreau-contact/30min" class="btn-primary" target="_blank">Réserver ma séance</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <p class="section-label" style="text-align:left;">Questions fréquentes</p>
+    <h2 class="section-title" style="text-align:left; margin-bottom:3rem;">Ce que tu te <em>demandes</em></h2>
+
+    <div class="faq-item">
+      <p class="faq-question">Comment se déroule une séance concrètement ?</p>
+      <p class="faq-answer">On se retrouve en visioconférence pendant une heure. Tu arrives comme tu es, sans te préparer. On commence par ce que tu portes, et on suit le fil de ce qui émerge. Chaque séance est unique.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-question">Est-ce qu'une seule séance suffit ?</p>
+      <p class="faq-answer">Une séance peut déjà apporter beaucoup de clarté et de mouvement. Certaines femmes reviennent régulièrement, d'autres font une séance ponctuelle selon leur besoin. Il n'y a pas de format imposé.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-question">Quelle est la différence avec une thérapie ?</p>
+      <p class="faq-answer">Je ne suis pas thérapeute. Mon accompagnement est orienté vers la prise de conscience, la clarté et la mise en mouvement. Si tu traverses une période difficile nécessitant un suivi thérapeutique, je t'encourage à consulter un professionnel de santé en parallèle.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-question">Comment je paye ?</p>
+      <p class="faq-answer">Le paiement se fait en ligne au moment de la réservation, de façon simple et sécurisée.</p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <h2 class="section-title" style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--bleu-profond); margin-bottom: 1.5rem;">Prête ?</h2>
+    <p class="section-intro" style="margin-bottom:2.5rem;">
+      Si quelque chose en toi a résonné, c'est peut-être le signe qu'il est temps.
+    </p>
+    <a href="https://calendly.com/jennymoreau-contact/30min" class="btn-primary" target="_blank" style="display:inline-block; width:auto; padding: 1rem 3rem;">Réserver ma séance</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">Au <span>cœur</span> d'elles</p>
+    <p class="footer-tagline">Jenny Moreau-Sonko · Accompagnante en reconnexion</p>
+    <ul class="footer-links">
+      <li><a href="accompagnement.html">Accompagnement</a></li>
+      <li><a href="index.html#univers">Expériences</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <p style="margin-bottom:0.8rem;"><a href="mentions-legales.html" style="font-family: DM Sans, sans-serif; font-size: 0.68rem; color: rgba(255,255,255,0.4); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase;">Mentions légales</a></p>
+    <p class="footer-copy">© 2026 Jenny Moreau-Sonko · Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>
