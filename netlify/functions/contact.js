@@ -16,11 +16,11 @@ exports.handler = async function(event) {
       "api-key": process.env.BREVO_API_KEY
     },
     body: JSON.stringify({
-      sender: { name: prenom, email: "Jennymoreau.contact@gmail.com" },
-      to: [{ email: "Jennymoreau.contact@gmail.com", name: "Jenny Moreau-Sonko" }],
+      sender: { name: "Au coeur d'elles", email: "jennymoreau.contact@gmail.com" },
+      to: [{ email: "jennymoreau.contact@gmail.com", name: "Jenny Moreau-Sonko" }],
       replyTo: { email: email, name: prenom },
-      subject: `Nouveau message de ${prenom} via Au cœur d'elles`,
-      htmlContent: `<h2>Nouveau message</h2><p><strong>Prénom :</strong> ${prenom}</p><p><strong>Email :</strong> ${email}</p><p><strong>Message :</strong> ${message}</p>`
+      subject: `Nouveau message de ${prenom}`,
+      htmlContent: `<h2>Nouveau message de contact</h2><p><strong>Prénom :</strong> ${prenom}</p><p><strong>Email :</strong> ${email}</p><p><strong>Message :</strong></p><p>${message}</p>`
     })
   });
 
@@ -28,6 +28,7 @@ exports.handler = async function(event) {
     return { statusCode: 200, body: JSON.stringify({ success: true }) };
   } else {
     const error = await response.text();
+    console.log("Brevo error:", error);
     return { statusCode: 500, body: JSON.stringify({ error }) };
   }
 };
