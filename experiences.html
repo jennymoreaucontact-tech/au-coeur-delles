@@ -640,7 +640,49 @@
     <p class="prochains-text">
       D'autres espaces sont en préparation. Pour ne pas les manquer, reste connectée.
     </p>
-    <a href="index.html#contact" class="btn-secondary">Me tenir informée</a>
+
+    <form id="newsletter-form" style="max-width: 480px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 1rem;">
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <input type="text" id="nl-prenom" placeholder="Ton prénom" style="flex: 1; min-width: 140px; padding: 0.9rem 1.2rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: #2a4a6b; background: rgba(255,255,255,0.9); outline: none;" />
+        <input type="email" id="nl-email" placeholder="Ton adresse email" required style="flex: 2; min-width: 200px; padding: 0.9rem 1.2rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: #2a4a6b; background: rgba(255,255,255,0.9); outline: none;" />
+      </div>
+      <button type="submit" id="nl-btn" class="btn-secondary" style="cursor: pointer; border: 1.5px solid rgba(255,255,255,0.6); background: transparent; color: #ffffff;">Me tenir informée</button>
+      <div id="nl-message" style="display: none; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-align: center;"></div>
+    </form>
+
+    <script>
+      document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('nl-btn');
+        const msg = document.getElementById('nl-message');
+        btn.textContent = 'Inscription en cours...';
+        btn.disabled = true;
+        try {
+          const res = await fetch('/.netlify/functions/newsletter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              prenom: document.getElementById('nl-prenom').value,
+              email: document.getElementById('nl-email').value
+            })
+          });
+          if (res.ok) {
+            msg.style.display = 'block';
+            msg.style.color = '#e8c4d0';
+            msg.textContent = 'Tu es bien inscrite ! Je te tiendrai informée des prochains espaces.';
+            document.getElementById('newsletter-form').reset();
+          } else {
+            throw new Error();
+          }
+        } catch {
+          msg.style.display = 'block';
+          msg.style.color = '#e8c4d0';
+          msg.textContent = 'Une erreur est survenue. Tu peux me contacter directement.';
+        }
+        btn.textContent = 'Me tenir informée';
+        btn.disabled = false;
+      });
+    </script>
   </section>
 
   <!-- FOOTER -->
