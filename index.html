@@ -1039,26 +1039,63 @@
       Une séance, une question, une envie de rejoindre le prochain cercle. Écris-moi.
     </p>
 
-    <form name="contact" method="POST" style="max-width: 560px; margin: 0 auto; text-align: left;">
+    <form id="contact-form" style="max-width: 560px; margin: 0 auto; text-align: left;">
       <div style="margin-bottom: 1.5rem;">
         <label style="font-family: 'DM Sans', sans-serif; font-size: 0.92rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--texte-moyen); display: block; margin-bottom: 0.5rem;">Prénom</label>
-        <input type="text" name="prenom" placeholder="Ton prénom" required style="width: 100%; padding: 1rem 1.2rem; border: 1px solid rgba(115, 143, 189, 0.25); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--texte-fonce); background: #ffffff; outline: none; transition: border 0.3s;" />
+        <input type="text" id="prenom" placeholder="Ton prénom" required style="width: 100%; padding: 1rem 1.2rem; border: 1px solid rgba(115, 143, 189, 0.25); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--texte-fonce); background: #ffffff; outline: none; transition: border 0.3s;" />
       </div>
 
       <div style="margin-bottom: 1.5rem;">
         <label style="font-family: 'DM Sans', sans-serif; font-size: 0.92rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--texte-moyen); display: block; margin-bottom: 0.5rem;">Email</label>
-        <input type="email" name="email" placeholder="Ton adresse email" required style="width: 100%; padding: 1rem 1.2rem; border: 1px solid rgba(115, 143, 189, 0.25); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--texte-fonce); background: #ffffff; outline: none; transition: border 0.3s;" />
+        <input type="email" id="email" placeholder="Ton adresse email" required style="width: 100%; padding: 1rem 1.2rem; border: 1px solid rgba(115, 143, 189, 0.25); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--texte-fonce); background: #ffffff; outline: none; transition: border 0.3s;" />
       </div>
 
       <div style="margin-bottom: 2rem;">
         <label style="font-family: 'DM Sans', sans-serif; font-size: 0.92rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--texte-moyen); display: block; margin-bottom: 0.5rem;">Message</label>
-        <textarea name="message" placeholder="Ce que tu veux me partager..." rows="5" required style="width: 100%; padding: 1rem 1.2rem; border: 1px solid rgba(115, 143, 189, 0.25); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--texte-fonce); background: #ffffff; outline: none; resize: none; transition: border 0.3s;"></textarea>
+        <textarea id="message" placeholder="Ce que tu veux me partager..." rows="5" required style="width: 100%; padding: 1rem 1.2rem; border: 1px solid rgba(115, 143, 189, 0.25); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--texte-fonce); background: #ffffff; outline: none; resize: none; transition: border 0.3s;"></textarea>
       </div>
 
       <div style="text-align: center;">
-        <button type="submit" class="btn-primary" style="border: none; cursor: pointer; width: 100%;">Envoyer mon message</button>
+        <button type="submit" id="submit-btn" class="btn-primary" style="border: none; cursor: pointer; width: 100%;">Envoyer mon message</button>
       </div>
+
+      <div id="form-message" style="margin-top: 1.5rem; text-align: center; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; display: none;"></div>
     </form>
+
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        const msg = document.getElementById('form-message');
+        btn.textContent = 'Envoi en cours...';
+        btn.disabled = true;
+        try {
+          const res = await fetch('/.netlify/functions/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              prenom: document.getElementById('prenom').value,
+              email: document.getElementById('email').value,
+              message: document.getElementById('message').value
+            })
+          });
+          if (res.ok) {
+            msg.style.display = 'block';
+            msg.style.color = '#2a4a6b';
+            msg.textContent = 'Ton message a bien été envoyé. Je te réponds très vite.';
+            document.getElementById('contact-form').reset();
+          } else {
+            throw new Error();
+          }
+        } catch {
+          msg.style.display = 'block';
+          msg.style.color = '#db88a4';
+          msg.textContent = 'Une erreur est survenue. Tu peux me contacter directement par email.';
+        }
+        btn.textContent = 'Envoyer mon message';
+        btn.disabled = false;
+      });
+    </script>
 
     <p style="margin-top: 2.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--texte-moyen);">
       Tu préfères réserver directement ?
