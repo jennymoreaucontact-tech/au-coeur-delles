@@ -1055,6 +1055,13 @@
         <textarea id="message" placeholder="Ce que tu veux me partager..." rows="5" required style="width: 100%; padding: 1rem 1.2rem; border: 1px solid rgba(115, 143, 189, 0.25); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--texte-fonce); background: #ffffff; outline: none; resize: none; transition: border 0.3s;"></textarea>
       </div>
 
+      <div style="margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 0.8rem;">
+        <input type="checkbox" id="newsletter-check" style="width: auto; margin-top: 3px; accent-color: var(--rose-mauve); cursor: pointer; flex-shrink: 0;" />
+        <label for="newsletter-check" style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--texte-moyen); letter-spacing: 0; text-transform: none; cursor: pointer; line-height: 1.5;">
+          Je m'inscris à la newsletter pour être informée des actualités
+        </label>
+      </div>
+
       <div style="text-align: center;">
         <button type="submit" id="submit-btn" class="btn-primary" style="border: none; cursor: pointer; width: 100%;">Envoyer mon message</button>
       </div>
@@ -1080,6 +1087,18 @@
             })
           });
           if (res.ok) {
+            // Inscription newsletter si cochée
+            const newsletterCheck = document.getElementById('newsletter-check');
+            if (newsletterCheck && newsletterCheck.checked) {
+              await fetch('/.netlify/functions/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  prenom: document.getElementById('prenom').value,
+                  email: document.getElementById('email').value
+                })
+              });
+            }
             msg.style.display = 'block';
             msg.style.color = '#2a4a6b';
             msg.textContent = 'Ton message a bien été envoyé. Je te réponds très vite.';
