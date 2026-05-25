@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parlons de ton projet · Au cœur d'elles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bleu-profond: #2a4a6b;
+      --bleu-moyen: #738fbd;
+      --bleu-ciel: #a8c3d4;
+      --rose: #e8c4d0;
+      --rose-mauve: #db88a4;
+      --blanc: #fdfafa;
+      --gris-doux: #f0ecf0;
+      --texte-fonce: #4a5a7a;
+      --texte-moyen: #7a8aaa;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--blanc);
+      color: var(--texte-fonce);
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(253, 250, 250, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(42, 74, 107, 0.06);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--bleu-moyen);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-logo span { color: var(--rose-mauve); }
+
+    .nav-back {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--texte-moyen);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-back:hover { color: var(--bleu-profond); }
+
+    /* HERO */
+    .hero {
+      background: var(--bleu-profond);
+      padding: 10rem 4rem 5rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(232,196,208,0.15);
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgba(219,136,164,0.1);
+      top: -30px; left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--rose-mauve);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em { font-style: italic; color: var(--rose); }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    /* FORMULAIRE */
+    .form-section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 5rem 4rem 7rem;
+    }
+
+    .form-block {
+      margin-bottom: 3.5rem;
+    }
+
+    .form-block-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--rose-mauve);
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .form-block-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(219,136,164,0.2);
+    }
+
+    .form-group { margin-bottom: 1.2rem; }
+
+    label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--texte-moyen);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border: 1px solid rgba(115,143,189,0.2);
+      border-radius: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--texte-fonce);
+      background: #ffffff;
+      outline: none;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--bleu-ciel);
+      box-shadow: 0 0 0 3px rgba(168,195,212,0.15);
+    }
+
+    textarea { resize: none; line-height: 1.7; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* RADIO */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--texte-fonce);
+      cursor: pointer;
+      text-transform: none;
+      letter-spacing: 0;
+      padding: 0.8rem 1.2rem;
+      border: 1px solid rgba(115,143,189,0.2);
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    .radio-label:hover {
+      border-color: var(--bleu-ciel);
+      background: rgba(168,195,212,0.08);
+    }
+
+    .radio-label input[type="radio"] {
+      width: auto;
+      accent-color: var(--rose-mauve);
+    }
+
+    /* BOUTON */
+    .btn-submit {
+      width: 100%;
+      padding: 1.2rem;
+      background: var(--rose-mauve);
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    .btn-submit:hover {
+      background: var(--bleu-profond);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(42,74,107,0.2);
+    }
+
+    .form-note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      color: var(--texte-moyen);
+      text-align: center;
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+
+    #form-response {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 16px;
+      margin-top: 1.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bleu-profond);
+      padding: 2.5rem 4rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: #ffffff;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-logo span { color: var(--rose-mauve); }
+
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { padding: 8rem 2rem 4rem; }
+      .form-section { padding: 4rem 1.5rem 5rem; }
+      .two-col { grid-template-columns: 1fr; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Au <span>cœur</span> d'elles</a>
+    <a href="entrepreneures.html" class="nav-back">← Retour</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Première étape</p>
+      <h1 class="hero-title">Parlons de <em>ton projet</em></h1>
+      <p class="hero-sub">Dis-moi où tu en es dans la création de ton univers digital. Je te recontacte pour un premier échange.</p>
+    </div>
+  </section>
+
+  <!-- FORMULAIRE -->
+  <div class="form-section">
+    <form id="projet-form">
+
+      <!-- COORDONNÉES -->
+      <div class="form-block">
+        <p class="form-block-title">Tes coordonnées</p>
+
+        <div class="two-col">
+          <div class="form-group">
+            <label>Prénom *</label>
+            <input type="text" id="p-prenom" required placeholder="Ton prénom" />
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" id="p-email" required placeholder="Ton adresse email" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Téléphone *</label>
+          <input type="tel" id="p-tel" required placeholder="Ton numéro de téléphone" />
+        </div>
+      </div>
+
+      <!-- TON PROJET -->
+      <div class="form-block">
+        <p class="form-block-title">Ton projet</p>
+
+        <div class="form-group">
+          <label>Quel est ton métier ou ton activité ? *</label>
+          <input type="text" id="p-metier" required placeholder="Ex : naturopathe, coach, thérapeute..." />
+        </div>
+
+        <div class="form-group">
+          <label>Où en es-tu dans ton projet ? *</label>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="avancement" value="Je démarre" required /> Je démarre</label>
+            <label class="radio-label"><input type="radio" name="avancement" value="En cours de développement" /> En cours de développement</label>
+            <label class="radio-label"><input type="radio" name="avancement" value="Établie" /> Établie</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Qu'est-ce qui t'a amenée ici aujourd'hui ? *</label>
+          <textarea id="p-amene" rows="4" required placeholder="Prends le temps de me dire ce qui t'a guidée jusqu'ici..."></textarea>
+        </div>
+      </div>
+
+      <!-- TA CRÉATION -->
+      <div class="form-block">
+        <p class="form-block-title">Ta création</p>
+
+        <div class="form-group">
+          <label>Comment tu te sens face à ta présence en ligne actuellement ?</label>
+          <textarea id="p-presence" rows="3" placeholder="Absente, insatisfaite, perdue, en construction..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Qu'est-ce que tu voudrais que ton site reflète de toi ?</label>
+          <textarea id="p-reflet" rows="3" placeholder="Les mots, les sensations, l'ambiance que tu imagines..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Y a-t-il quelque chose que tu veux me dire sur ton univers ou ton projet ?</label>
+          <textarea id="p-univers" rows="3" placeholder="Tout ce qui te semble important à partager..."></textarea>
+        </div>
+      </div>
+
+      <!-- DISPONIBILITÉS -->
+      <div class="form-block">
+        <p class="form-block-title">Pour te contacter</p>
+
+        <div class="form-group">
+          <label>Quel est le meilleur moment pour un échange téléphonique ? *</label>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="moment" value="En fin de matinée" required /> En fin de matinée</label>
+            <label class="radio-label"><input type="radio" name="moment" value="Le midi" /> Le midi</label>
+            <label class="radio-label"><input type="radio" name="moment" value="En fin d'après-midi" /> En fin d'après-midi</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Précisez (optionnel)</label>
+          <input type="text" id="p-moment-detail" placeholder="Ex : plutôt vers 12h30..." />
+        </div>
+      </div>
+
+      <button type="submit" id="projet-btn" class="btn-submit">Envoyer ma demande</button>
+      <p class="form-note">Je te réponds dans les 48h pour convenir d'un moment d'échange. 🌹</p>
+
+      <div id="form-response"></div>
+
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">Au <span>cœur</span> d'elles</p>
+    <p class="footer-copy">© 2026 Jenny Moreau-Sonko · Tous droits réservés</p>
+  </footer>
+
+  <script>
+    document.getElementById('projet-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('projet-btn');
+      const resp = document.getElementById('form-response');
+      btn.textContent = 'Envoi en cours...';
+      btn.disabled = true;
+
+      const avancement = document.querySelector('input[name="avancement"]:checked');
+      const moment = document.querySelector('input[name="moment"]:checked');
+
+      try {
+        const res = await fetch('/.netlify/functions/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prenom: document.getElementById('p-prenom').value,
+            email: document.getElementById('p-email').value,
+            message: `
+📋 NOUVEAU QUESTIONNAIRE PROJET
+
+👤 Coordonnées
+Prénom : ${document.getElementById('p-prenom').value}
+Email : ${document.getElementById('p-email').value}
+Téléphone : ${document.getElementById('p-tel').value}
+
+💼 Projet
+Métier / Activité : ${document.getElementById('p-metier').value}
+Avancement : ${avancement ? avancement.value : 'Non renseigné'}
+Ce qui l'a amenée ici : ${document.getElementById('p-amene').value}
+
+✨ Création
+Présence en ligne : ${document.getElementById('p-presence').value}
+Ce que le site devrait refléter : ${document.getElementById('p-reflet').value}
+Univers / projet : ${document.getElementById('p-univers').value}
+
+📞 Disponibilités
+Meilleur moment : ${moment ? moment.value : 'Non renseigné'}
+Précision : ${document.getElementById('p-moment-detail').value}
+            `
+          })
+        });
+
+        if (res.ok) {
+          resp.style.display = 'block';
+          resp.style.background = 'rgba(232,196,208,0.15)';
+          resp.style.color = '#2a4a6b';
+          resp.innerHTML = '<p style="font-family: Cormorant Garamond, serif; font-size: 1.4rem; font-style: italic; margin-bottom: 0.5rem;">Merci ✦</p><p style="font-family: DM Sans, sans-serif; font-size: 0.95rem; font-weight: 300;">J\'ai bien reçu ta demande. Je te recontacte dans les 48h pour convenir d\'un moment d\'échange.</p>';
+          document.getElementById('projet-form').reset();
+        } else {
+          throw new Error();
+        }
+      } catch {
+        resp.style.display = 'block';
+        resp.style.background = 'rgba(219,136,164,0.1)';
+        resp.style.color = '#db88a4';
+        resp.innerHTML = '<p style="font-family: DM Sans, sans-serif; font-size: 0.9rem;">Une erreur est survenue. Tu peux me contacter directement à Jennymoreau.contact@gmail.com</p>';
+      }
+
+      btn.textContent = 'Envoyer ma demande';
+      btn.disabled = false;
+    });
+  </script>
+
+</body>
+</html>
