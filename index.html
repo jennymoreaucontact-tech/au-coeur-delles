@@ -1,1139 +1,884 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Au cœur d'elles · Jenny Moreau-Sonko</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bleu-profond: #738fbd;
-      --bleu-moyen: #a8c3d4;
+      --bleu-profond: #2a4a6b;
+      --bleu-moyen: #738fbd;
       --bleu-ciel: #a8c3d4;
-      --bleu-pale: #dbd6df;
-      --jaune-doux: #db88a4;
-      --jaune-clair: #f5eef2;
+      --rose: #e8c4d0;
+      --rose-mauve: #db88a4;
+      --rose-clair: #f5eef2;
       --blanc: #fdfafa;
-      --blanc-pur: #ffffff;
       --gris-doux: #f0ecf0;
-      --texte-fonce: #4a5a7a;
-      --texte-moyen: #7a8aaa;
     }
 
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background-color: var(--blanc);
-      color: var(--texte-fonce);
-      overflow-x: hidden;
+      background: var(--blanc);
+      color: var(--bleu-profond);
+      font-size: 16px;
+      line-height: 1.7;
     }
 
     /* NAV */
     nav {
       position: fixed;
       top: 0;
-      left: 0;
-      right: 0;
+      width: 100%;
       z-index: 100;
+      background: rgba(253, 250, 250, 0.92);
+      backdrop-filter: blur(8px);
+      padding: 1.2rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 4rem;
-      background: rgba(250, 248, 244, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(42, 74, 107, 0.08);
+      border-bottom: 1px solid rgba(168, 195, 212, 0.2);
     }
 
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 400;
       color: var(--bleu-profond);
-      letter-spacing: 0.05em;
       text-decoration: none;
-    }
-
-    .nav-logo span {
-      color: var(--jaune-doux);
+      letter-spacing: 0.02em;
     }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem;
-      font-weight: 400;
-      color: var(--texte-moyen);
-      text-decoration: none;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
+      font-size: 0.85rem;
       color: var(--bleu-profond);
-    }
-
-    /* SOUS-MENU */
-    .nav-dropdown {
-      position: relative;
-    }
-
-    .nav-dropdown > a::after {
-      content: ' ▾';
-      font-size: 0.6rem;
-      opacity: 0.6;
-    }
-
-    .nav-submenu {
-      position: absolute;
-      top: calc(100% + 1rem);
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(253, 250, 250, 0.98);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(42, 74, 107, 0.08);
-      border-radius: 12px;
-      padding: 0.8rem 0;
-      min-width: 220px;
-      box-shadow: 0 8px 30px rgba(42, 74, 107, 0.1);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateX(-50%) translateY(-8px);
-      transition: all 0.25s ease;
-      z-index: 200;
-    }
-
-    .nav-dropdown:hover .nav-submenu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .nav-submenu a {
-      display: block;
-      padding: 0.65rem 1.5rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--texte-moyen);
       text-decoration: none;
-      transition: all 0.2s ease;
-      white-space: nowrap;
+      letter-spacing: 0.05em;
+      opacity: 0.75;
+      transition: opacity 0.2s;
     }
 
-    .nav-submenu a:hover {
-      color: var(--bleu-profond);
-      background: rgba(232, 196, 208, 0.15);
-      padding-left: 2rem;
-    }
+    .nav-links a:hover { opacity: 1; }
 
     /* HERO */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
+      padding: 140px 2.5rem 90px;
+      background: var(--bleu-profond);
       position: relative;
       overflow: hidden;
-      padding: 8rem 10vw 5rem;
     }
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: #2a4a6b;
-      z-index: 0;
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
-    /* Cercles décoratifs */
-    .circle-deco {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(232, 196, 208, 0.25);
-      animation: breathe 8s ease-in-out infinite;
-      z-index: 1;
-    }
-
-    .circle-1 {
-      width: 500px;
-      height: 500px;
-      top: 50%;
-      right: -100px;
-      transform: translateY(-50%);
-      animation-delay: 0s;
-    }
-
-    .circle-2 {
-      width: 380px;
-      height: 380px;
-      top: 50%;
-      right: -40px;
-      transform: translateY(-50%);
-      border-color: rgba(232, 201, 122, 0.2);
-      animation-delay: 1.5s;
-    }
-
-    .circle-3 {
-      width: 250px;
-      height: 250px;
-      top: 50%;
-      right: 30px;
-      transform: translateY(-50%);
-      animation-delay: 3s;
-    }
-
-    @keyframes breathe {
-      0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.6; }
-      50% { transform: translateY(-50%) scale(1.04); opacity: 1; }
-    }
-
-    /* Étoiles */
     .star {
       position: absolute;
-      width: 12px;
-      height: 12px;
-      opacity: 0.6;
-      animation: twinkle 4s ease-in-out infinite;
+      color: rgba(219, 136, 164, 0.5);
+      pointer-events: none;
     }
 
-    .star::before {
-      content: '✦';
-      font-size: 12px;
-      color: #b8c4cc;
-      text-shadow: 0 0 6px rgba(184, 196, 204, 0.9);
-      position: absolute;
-    }
+    .star-1 { top: 60%; right: 12%; font-size: 0.7rem; }
+    .star-2 { top: 30%; right: 22%; font-size: 1.1rem; }
 
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.5); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 650px;
-    }
-
-    .hero-eyebrow {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: #db88a4;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.2s;
+      color: var(--rose-mauve);
+      margin-bottom: 1.2rem;
+      display: block;
     }
 
-    .hero-title {
+    h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
       font-weight: 300;
-      line-height: 1.08;
-      color: #ffffff;
-      margin-bottom: 0.3rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.4s;
+      line-height: 1.12;
+      color: var(--blanc);
+      margin-bottom: 1.8rem;
     }
 
-    .hero-title em {
+    h1 em {
       font-style: italic;
-      color: #e8c4d0;
+      color: var(--rose-mauve);
     }
 
-    .hero-title .accent {
-      color: #e8c4d0;
-    }
-
-    .hero-subtitle {
+    h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
       font-weight: 300;
-      font-style: italic;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 2.2rem;
-      line-height: 1.5;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.6s;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      color: var(--bleu-profond);
     }
 
-    .hero-text {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.8;
-      margin-bottom: 3rem;
+    h2 em {
+      font-style: italic;
+      color: var(--rose-mauve);
+    }
+
+    .hero-intro {
+      font-size: 1.1rem;
+      color: rgba(253, 250, 250, 0.78);
       max-width: 520px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.8s;
+      line-height: 1.85;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 2.5rem;
     }
 
-    .hero-ctas {
+    .hero-cta {
       display: flex;
-      gap: 1.2rem;
+      gap: 1rem;
       flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 1s;
     }
+
+    /* BOUTONS */
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+    }
+
+    .btn-blanc {
+      background: var(--blanc);
+      color: var(--bleu-profond);
+    }
+
+    .btn-blanc:hover { background: var(--rose-clair); }
+
+    .btn-outline-blanc {
+      background: transparent;
+      color: rgba(253,250,250,0.85);
+      border: 1px solid rgba(253,250,250,0.35);
+    }
+
+    .btn-outline-blanc:hover { background: rgba(253,250,250,0.08); }
 
     .btn-primary {
-      display: inline-block;
-      padding: 1rem 2.2rem;
-      background: #db88a4;
-      color: #ffffff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(219, 136, 164, 0.3);
+      background: var(--bleu-profond);
+      color: var(--blanc);
     }
 
-    .btn-primary:hover {
-      background: #cc8eb1;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(219, 136, 164, 0.4);
-    }
-    }
+    .btn-primary:hover { background: var(--bleu-moyen); }
 
-    .btn-secondary {
-      display: inline-block;
-      padding: 1rem 2.2rem;
+    .btn-outline {
       background: transparent;
-      color: #ffffff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 50px;
-      border: 1.5px solid rgba(255,255,255,0.6);
-      transition: all 0.3s ease;
+      color: var(--blanc);
+      border: 1px solid rgba(253,250,250,0.4);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: #ffffff;
-      transform: translateY(-2px);
+    .btn-outline:hover { background: rgba(253,250,250,0.1); }
+
+    .btn-rose {
+      background: var(--rose-mauve);
+      color: var(--blanc);
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .btn-rose:hover { background: #c87090; }
 
-    /* PHRASE CENTRALE */
-    .phrase-section {
-      padding: 6rem 4rem;
-      text-align: center;
-      background: #e8c4d0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .phrase-section::before {
-      content: '';
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.08);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .phrase-section::after {
-      content: '';
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      border: 1px solid rgba(232, 201, 122, 0.15);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .phrase-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(168, 195, 212, 0.3);
+      max-width: 860px;
       margin: 0 auto;
     }
 
-    .phrase-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-      font-weight: 300;
-      font-style: italic;
-      color: #ffffff;
-      line-height: 1.5;
-      margin-bottom: 2rem;
-    }
-
-    .phrase-quote .highlight {
-      color: #ffffff;
-      font-style: normal;
-      font-weight: 500;
-    }
-
-    .phrase-signature {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-    }
-
-    /* UNIVERS */
-    .univers-section {
-      padding: 7rem 4rem;
-      background: var(--blanc);
-    }
-
-    .section-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: #d4b8d0;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      color: var(--bleu-profond);
-      text-align: center;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .section-title em {
-      font-style: italic;
-      color: #d4b8d0;
+    /* SECTIONS */
+    section {
+      padding: 80px 2.5rem;
+      max-width: 860px;
+      margin: 0 auto;
     }
 
     .section-intro {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 300;
-      color: var(--texte-moyen);
-      text-align: center;
-      max-width: 520px;
-      margin: 0 auto 4rem;
+      font-size: 1rem;
+      opacity: 0.8;
+      max-width: 580px;
+      margin-bottom: 3rem;
       line-height: 1.8;
     }
 
-    .univers-grid {
+    /* POUR TOI SI */
+    .pour-toi-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
 
-    .univers-card {
-      background: #e8c4d0;
-      border-radius: 24px;
-      padding: 3rem 2.5rem;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: 0 4px 30px rgba(232, 196, 192, 0.3);
-      border: none;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .univers-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: #2a4a6b;
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-    }
-
-    .univers-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 50px rgba(196, 148, 138, 0.4);
-    }
-
-    .univers-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-
-    .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: #738fbd;
-      margin-bottom: 0.8rem;
-      line-height: 1.2;
-    }
-
-    .card-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: #ffffff;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .card-link {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #738fbd;
+    .pour-toi-item {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .card-link::after {
-      content: '→';
-      transition: transform 0.3s ease;
-    }
-
-    .univers-card:hover .card-link::after {
-      transform: translateX(4px);
-    }
-
-    /* ÉVÉNEMENT */
-    .event-section {
-      padding: 7rem 4rem;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.5rem;
       background: var(--gris-doux);
-      position: relative;
-      overflow: hidden;
+      border-radius: 12px;
     }
 
-    .event-inner {
-      max-width: 1100px;
-      margin: 0 auto;
+    .pour-toi-icon {
+      font-size: 1.1rem;
+      color: var(--rose-mauve);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pour-toi-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--bleu-profond);
+      opacity: 0.85;
+    }
+
+    /* OFFRES */
+    .offres-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
+      gap: 2rem;
+      margin-top: 2.5rem;
     }
 
-    .event-visual {
-      position: relative;
-      width: 380px;
-      height: 380px;
-      flex-shrink: 0;
+    @media (max-width: 680px) {
+      .offres-grid { grid-template-columns: 1fr; }
     }
 
-    .event-date-badge {
-      position: absolute;
-      bottom: 30px;
-      right: -10px;
-      background: #2a4a6b;
-      color: var(--blanc-pur);
-      padding: 1rem 1.5rem;
+    .offre-card {
+      background: var(--blanc);
+      border: 1px solid rgba(168, 195, 212, 0.35);
       border-radius: 16px;
-      font-family: 'Cormorant Garamond', serif;
-      text-align: center;
-      box-shadow: 0 8px 30px rgba(42, 74, 107, 0.3);
-      z-index: 2;
-    }
-
-    .event-cercle {
-      width: 380px;
-      height: 380px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--bleu-pale) 0%, var(--jaune-clair) 100%);
+      padding: 2rem;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: box-shadow 0.3s;
     }
 
-    .event-cercle::before {
-      content: '';
-      position: absolute;
-      inset: -20px;
-      border-radius: 50%;
-      border: 1px solid rgba(122, 175, 212, 0.3);
+    .offre-card:hover {
+      box-shadow: 0 12px 40px rgba(42, 74, 107, 0.08);
     }
 
-    .event-cercle::after {
-      content: '';
-      position: absolute;
-      inset: -40px;
-      border-radius: 50%;
-      border: 1px solid rgba(232, 201, 122, 0.2);
+    .offre-card.featured {
+      background: var(--bleu-profond);
+      color: var(--blanc);
+      border-color: transparent;
     }
 
-    .event-emoji {
-      font-size: 5rem;
-      animation: float 6s ease-in-out infinite;
+    .offre-card.featured h3,
+    .offre-card.featured .offre-label,
+    .offre-card.featured .offre-prix,
+    .offre-card.featured .offre-desc,
+    .offre-card.featured .offre-inclus li {
+      color: var(--blanc);
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
+    .offre-card.featured .offre-label { opacity: 0.7; }
+    .offre-card.featured .offre-inclus li::before { color: var(--rose); }
 
-    .event-date-badge {
-      position: absolute;
-      bottom: 20px;
-      right: -20px;
-      background: #2a4a6b;
-      color: var(--blanc-pur);
-      padding: 1rem 1.5rem;
-      border-radius: 16px;
-      font-family: 'Cormorant Garamond', serif;
-      text-align: center;
-      box-shadow: 0 8px 30px rgba(42, 74, 107, 0.3);
-    }
-
-    .event-date-badge .day {
-      font-size: 2rem;
-      font-weight: 400;
-      display: block;
-      line-height: 1;
-    }
-
-    .event-date-badge .month {
-      font-size: 0.92rem;
-      letter-spacing: 0.1em;
+    .offre-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      color: var(--jaune-doux);
+      color: var(--bleu-moyen);
     }
 
-    #contact a {
-      text-decoration: none;
+    .offre-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--bleu-profond);
     }
 
-    .hero-ctas .btn-secondary {
-      color: #ffffff;
-      border-color: rgba(255,255,255,0.6);
+    .offre-tagline {
+      font-size: 0.9rem;
+      font-style: italic;
+      opacity: 0.75;
+      line-height: 1.6;
     }
 
-    #contact .btn-secondary {
-      color: #db88a4;
-      border-color: #db88a4;
+    .offre-desc {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--bleu-profond);
+      opacity: 0.8;
     }
 
-    #contact .btn-secondary:hover {
-      background: #f5eef2;
-    }
-      background: #db88a4;
-      color: #ffffff;
-      border-color: #db88a4;
-    }
-
-    .event-content .btn-primary:hover,
-    #contact .btn-primary:hover {
-      background: #cc8eb1;
-    }
-
-    .event-content .section-title {
-      text-align: left;
-      margin-bottom: 1.2rem;
-    }
-
-    .event-content .section-intro {
-      text-align: left;
-      margin: 0 0 1rem;
-      max-width: 100%;
-    }
-
-    .event-detail {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem;
-      color: var(--texte-moyen);
-      margin-bottom: 2rem;
+    .offre-inclus {
+      list-style: none;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 0.5rem;
     }
 
-    .event-detail span {
-      color: #db88a4;
+    .offre-inclus li {
+      font-size: 0.88rem;
+      color: var(--bleu-profond);
+      opacity: 0.85;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .offre-inclus li::before {
+      content: '◯';
+      color: var(--rose-mauve);
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      margin-top: 3px;
+    }
+
+    .offre-prix {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--bleu-profond);
+      margin-top: auto;
+    }
+
+    .offre-prix span {
+      font-size: 0.85rem;
+      font-family: 'DM Sans', sans-serif;
+      opacity: 0.65;
+      margin-left: 0.3rem;
+    }
+
+    .offre-sav {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      font-style: italic;
     }
 
     /* JENNY */
     .jenny-section {
-      padding: 7rem 4rem;
-      background: var(--blanc);
-    }
-
-    .jenny-inner {
-      max-width: 900px;
+      padding: 80px 2.5rem;
+      max-width: 860px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
       align-items: center;
     }
 
-    .jenny-visual {
-      position: relative;
-      width: 380px;
-      flex-shrink: 0;
+    @media (max-width: 700px) {
+      .jenny-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
     }
 
-    .jenny-avatar {
-      width: 380px;
-      height: 380px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--bleu-pale), var(--jaune-clair));
+    .jenny-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 16px;
+      filter: grayscale(15%);
+    }
+
+    .jenny-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--gris-doux);
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 6rem;
-      position: relative;
     }
 
-    .jenny-avatar::before {
-      content: '';
-      position: absolute;
-      inset: -20px;
-      border-radius: 50%;
-      border: 1px solid rgba(219, 136, 164, 0.3);
-      opacity: 0.6;
+    .jenny-photo-placeholder span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: var(--bleu-ciel);
+      opacity: 0.4;
     }
 
-    .jenny-avatar::after {
-      content: '';
-      position: absolute;
-      inset: -40px;
-      border-radius: 50%;
-      border: 1px solid rgba(168, 195, 212, 0.2);
-    }
-
-    .jenny-content .section-label,
-    .jenny-content .section-title {
-      text-align: left;
-    }
-
-    .jenny-content .section-title {
+    .jenny-texte p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--bleu-profond);
+      opacity: 0.82;
       margin-bottom: 1.2rem;
     }
 
-    .jenny-bio {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.15rem;
+    .jenny-texte p:first-of-type {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+    }
+
+    .jenny-texte p:last-of-type {
+      margin-bottom: 2rem;
+    }
+
+    /* CITATION */
+    .citation-section {
+      background: var(--rose-clair);
+      padding: 60px 2.5rem;
+      text-align: center;
+    }
+
+    .citation-section blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
       font-weight: 300;
-      color: var(--texte-moyen);
-      line-height: 1.9;
+      font-style: italic;
+      color: var(--bleu-profond);
+      max-width: 680px;
+      margin: 0 auto 1rem;
+      line-height: 1.5;
+    }
+
+    .citation-auteur {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose-mauve);
+    }
+
+    /* TEMOIGNAGES */
+    .temoignages {
+      background: var(--gris-doux);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-top: 0;
+    }
+
+    .temoignage {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(168, 195, 212, 0.3);
+    }
+
+    .temoignage:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .temoignage-texte {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      font-style: italic;
+      color: var(--bleu-profond);
+      opacity: 0.85;
       margin-bottom: 1rem;
     }
 
-    .jenny-bio strong {
+    .temoignage-auteur {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .temoignage-initiale {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bleu-ciel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
       color: var(--bleu-profond);
+      flex-shrink: 0;
+    }
+
+    .temoignage-nom {
+      font-size: 0.85rem;
       font-weight: 500;
+    }
+
+    .temoignage-role {
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    .temoignage-lien {
+      color: var(--bleu-moyen);
+      text-decoration: none;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      padding: 80px 2.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 580px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-field label {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bleu-profond);
+      opacity: 0.65;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      padding: 0.85rem 1rem;
+      border: 1px solid rgba(168, 195, 212, 0.5);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--bleu-profond);
+      background: var(--blanc);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--bleu-moyen);
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-newsletter {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+      cursor: pointer;
+    }
+
+    .contact-ou {
+      text-align: center;
+      font-size: 0.82rem;
+      opacity: 0.5;
+      margin: 0.5rem 0;
+    }
+
+    /* CTA FINAL */
+    .cta-section {
+      text-align: center;
+      padding: 80px 2.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 { margin-bottom: 1rem; }
+
+    .cta-section p {
+      font-size: 0.95rem;
+      opacity: 0.75;
+      margin-bottom: 2rem;
+      line-height: 1.8;
     }
 
     /* FOOTER */
     footer {
-      background: #2a4a6b;
-      padding: 3rem 4rem;
+      background: var(--bleu-profond);
+      color: rgba(253, 250, 250, 0.7);
+      padding: 3rem 2.5rem;
       text-align: center;
     }
 
     .footer-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--blanc-pur);
-      letter-spacing: 0.05em;
+      font-size: 1.1rem;
+      color: var(--blanc);
       margin-bottom: 0.5rem;
     }
 
-    .footer-logo span {
-      color: var(--jaune-doux);
-    }
-
-    .footer-tagline {
-      font-family: 'DM Sans', sans-serif;
+    .footer-sub {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.1em;
+      opacity: 0.6;
       margin-bottom: 2rem;
     }
 
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
+      gap: 2rem;
       list-style: none;
       margin-bottom: 2rem;
       flex-wrap: wrap;
-      padding: 0 1rem;
     }
 
     .footer-links a {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.68rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(253, 250, 250, 0.6);
       text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.3s;
+      font-size: 0.82rem;
+      transition: opacity 0.2s;
     }
 
-    .footer-links a:hover {
-      color: var(--jaune-doux);
-    }
+    .footer-links a:hover { opacity: 1; color: var(--blanc); }
 
     .footer-copy {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.25);
-      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      opacity: 0.4;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      nav { padding: 1rem 2rem; }
-      .nav-links { display: none; }
-
-      /* HERO MOBILE */
-      .hero { padding: 6rem 1.5rem 4rem; min-height: 100vh; }
-      .hero-content { max-width: 100%; }
-      .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
-      .hero-subtitle { font-size: 1rem; }
-      .hero-text { font-size: 0.95rem; }
-      .hero-ctas { flex-direction: column; gap: 1rem; }
-      .hero-ctas a { text-align: center; width: 100%; }
-      .circle-1 { width: 300px; height: 300px; right: -80px; }
-      .circle-2 { width: 220px; height: 220px; right: -40px; }
-      .circle-3 { width: 150px; height: 150px; right: 0px; }
-
-      /* SECTIONS */
-      .phrase-section { padding: 4rem 1.5rem; }
-      .univers-section { padding: 5rem 1.5rem; }
-      .univers-grid { grid-template-columns: 1fr; }
-
-      /* ÉVÉNEMENT */
-      .event-section { padding: 5rem 1.5rem; }
-      .event-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-      .event-visual { width: 280px; height: 280px; margin: 0 auto; }
-      .event-cercle { width: 280px; height: 280px; }
-      .event-date-badge { right: -5px; bottom: 10px; }
-      .event-content .section-label,
-      .event-content .section-title,
-      .event-content .section-intro { text-align: center; }
-      .event-detail { justify-content: center; }
-
-      /* JENNY */
-      .jenny-section { padding: 5rem 1.5rem; }
-      .jenny-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .jenny-avatar { width: 240px; height: 240px; margin: 0 auto; }
-      .jenny-visual { width: 100%; display: flex; justify-content: center; }
-      .jenny-content .section-label,
-      .jenny-content .section-title { text-align: center; }
-
-      /* CONTACT */
-      #contact { padding: 4rem 1.5rem; }
-
-      footer { padding: 2.5rem 1.5rem; }
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { gap: 1.2rem; }
+      .hero { padding: 120px 1.5rem 70px; }
+      section { padding: 60px 1.5rem; }
+      .jenny-section { padding: 60px 1.5rem; }
+      .temoignages { padding: 2rem 1.5rem; }
+      .contact-section { padding: 60px 1.5rem; }
+      .cta-section { padding: 60px 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- NAVIGATION -->
   <nav>
-    <a href="#" class="nav-logo">Au <span>cœur</span> d'elles</a>
+    <a href="/" class="nav-logo">Au cœur d'elles</a>
     <ul class="nav-links">
-      <li class="nav-dropdown">
-        <a href="#univers">Espaces</a>
-        <div class="nav-submenu">
-          <a href="accompagnement.html">Séances individuelles</a>
-          <a href="experiences.html">Expériences</a>
-          <a href="entrepreneures.html">Entrepreneures de cœur</a>
-        </div>
-      </li>
-      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="#offres">Les offres</a></li>
+      <li><a href="#jenny">À propos</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-
-    <!-- Cercles concentriques -->
-    <div class="circle-deco circle-1"></div>
-    <div class="circle-deco circle-2"></div>
-    <div class="circle-deco circle-3"></div>
-
-    <!-- Étoiles -->
-    <div class="star" style="top: 20%; left: 60%; animation-delay: 0s;"></div>
-    <div class="star" style="top: 35%; left: 75%; animation-delay: 1.2s;"></div>
-    <div class="star" style="top: 65%; left: 55%; animation-delay: 2.4s;"></div>
-    <div class="star" style="top: 15%; left: 85%; animation-delay: 0.8s;"></div>
-    <div class="star" style="top: 80%; left: 70%; animation-delay: 1.8s;"></div>
-
-    <div class="hero-content">
-      <p class="hero-eyebrow">Jenny Moreau-Sonko · Accompagnante en reconnexion à soi & consultante en identité digitale</p>
-      <h1 class="hero-title">
-        Bienvenue<br>
-        à la <em>maison</em><span class="accent">.</span>
-      </h1>
-      <p class="hero-subtitle">
-        Cet espace est une invitation à revenir dans ton cœur.
+  <div class="hero">
+    <span class="star star-1">✦</span>
+    <span class="star star-2">✦</span>
+    <div class="hero-inner">
+      <span class="section-label">Pour les femmes qui entreprennent</span>
+      <h1>Pour les femmes qui construisent<br>une entreprise qui leur<br><em>ressemble vraiment</em></h1>
+      <p class="hero-intro">
+        Une présence en ligne juste commence toujours par un retour à soi.
       </p>
-      <p class="hero-text">
-        Pour les femmes qui sentent qu'il est temps de se retrouver.<br>
-        Ici tu peux te déposer, être entendue, et te sentir libre d'être qui tu es vraiment.
-      </p>
-      <div class="hero-ctas">
-        <a href="accompagnement.html" class="btn-primary">Réserver une séance</a>
-        <a href="experiences.html" class="btn-secondary">Voyage Sonore · Juin 2026</a>
+      <div class="hero-cta">
+        <a href="#offres" class="btn btn-blanc">Découvrir les offres</a>
+        <a href="#contact" class="btn btn-outline-blanc">Me contacter</a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- POUR TOI SI -->
+  <section>
+    <span class="section-label">Pour toi si…</span>
+    <h2>Tu te reconnais <em>ici</em></h2>
+    <div class="pour-toi-grid">
+      <div class="pour-toi-item">
+        <span class="pour-toi-icon">✦</span>
+        <p class="pour-toi-text">Tu as une belle offre mais tu ne sais pas comment la mettre en mots ni la rendre visible en ligne.</p>
+      </div>
+      <div class="pour-toi-item">
+        <span class="pour-toi-icon">◯</span>
+        <p class="pour-toi-text">Tu veux un site et une présence en ligne qui reflètent vraiment qui tu es.</p>
+      </div>
+      <div class="pour-toi-item">
+        <span class="pour-toi-icon">❋</span>
+        <p class="pour-toi-text">Tu as besoin d'être accompagnée pas à pas, par quelqu'un qui comprend ton univers et ta façon de créer.</p>
       </div>
     </div>
   </section>
 
-  <!-- PHRASE CENTRALE -->
-  <section class="phrase-section">
-    <div class="phrase-inner">
-      <p class="phrase-quote">
-        "Tu n'es pas seule dans ce que tu traverses.<br>
-        Et <span class="highlight">revenir à toi</span> est le chemin le plus courageux."
-      </p>
-      <p class="phrase-signature">Jenny Moreau-Sonko</p>
-    </div>
-  </section>
+  <hr class="divider">
 
-  <!-- UNIVERS -->
-  <section class="univers-section" id="univers">
-    <p class="section-label">Ce que je propose</p>
-    <h2 class="section-title">Des espaces pour <em>revenir à soi</em></h2>
-    <p class="section-intro">
-      Que tu sois femme, mère et/ou entrepreneure, il y a un espace pour toi ici.
-    </p>
+  <!-- OFFRES -->
+  <section id="offres">
+    <span class="section-label">Les espaces</span>
+    <h2>Ce qu'on peut <em>construire ensemble</em></h2>
+    <p class="section-intro">Deux espaces selon là où tu en es : un moment de clarté ponctuel, ou un accompagnement complet pour poser les fondations de ton univers digital.</p>
 
-    <div class="univers-grid">
-      <a href="accompagnement.html" class="univers-card">
-        <span class="card-icon">✦</span>
-        <h3 class="card-title">Séances individuelles</h3>
-        <p class="card-desc">
-          Un espace d'écoute profonde pour prendre conscience de ce qui se joue en toi, retrouver de la clarté et te remettre en mouvement.
+    <div class="offres-grid">
+
+      <!-- BOUSSOLE -->
+      <div class="offre-card">
+        <p class="offre-label">🧭 Séance ponctuelle</p>
+        <h3>Boussole</h3>
+        <p class="offre-tagline">Pour les entrepreneures qui ont besoin de retrouver leur direction</p>
+        <p class="offre-desc">
+          Tu entreprends, tu avances, mais quelque chose s'est brouillé. Tu ne sais plus si ce que tu construis est encore aligné avec qui tu es. Tu doutes de ta direction, de tes offres, de l'énergie que tu y mets.<br><br>
+          Boussole est une heure dédiée à toi et ton entreprise. On pose ce qui est là, on regarde ce qui est juste, et tu repars avec de la clarté.
         </p>
-        <span class="card-link">En savoir plus</span>
-      </a>
-
-      <a href="experiences.html" class="univers-card">
-        <span class="card-icon">◯</span>
-        <h3 class="card-title">Cercles & expériences</h3>
-        <p class="card-desc">
-          Des espaces collectifs sensoriels pour se déposer, se retrouver entre femmes et laisser le corps se souvenir de lui-même.
-        </p>
-        <span class="card-link">Voir les événements</span>
-      </a>
-
-      <a href="entrepreneures.html" class="univers-card">
-        <span class="card-icon">❋</span>
-        <h3 class="card-title">Pour les entrepreneures de cœur</h3>
-        <p class="card-desc">
-          Tu crées depuis ton cœur et tu as besoin de construire ton univers digital de façon alignée. Parlons-en.
-        </p>
-        <span class="card-link">Découvrir</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- ÉVÉNEMENT -->
-  <section class="event-section" id="evenement">
-    <div class="event-inner">
-      <div class="event-visual">
-        <div class="event-cercle" style="overflow: hidden; padding: 0;">
-          <img src="voyage-sonore.png" alt="Voyage Sonore" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
-        </div>
-        <div class="event-date-badge">
-          <span class="day">6</span>
-          <span class="month">Juin 2026</span>
-        </div>
+        <ul class="offre-inclus">
+          <li>1 séance de 1h en visioconférence</li>
+          <li>Le replay de la séance pour y revenir à ton rythme</li>
+          <li>Un cap clair pour la suite</li>
+        </ul>
+        <p class="offre-prix">90€ <span>· paiement à la réservation</span></p>
+        <a href="https://calendly.com/jennymoreau-contact/new-meeting" class="btn btn-primary">Réserver ma séance</a>
       </div>
 
-      <div class="event-content">
-        <p class="section-label">Prochain événement</p>
-        <h2 class="section-title">Voyage Sonore<br><em>& Chant</em></h2>
-        <p class="section-intro">
-          Une expérience sensorielle collective pour laisser le son te traverser, te déposer et revenir à toi. En présence de Jenny et Nathalie.
+      <!-- FONDATION -->
+      <div class="offre-card featured">
+        <p class="offre-label">🌿 Accompagnement complet</p>
+        <h3>Fondation</h3>
+        <p class="offre-tagline">Pour poser les bases de ton univers digital, de façon alignée, à ton rythme, depuis ton cœur</p>
+        <p class="offre-desc">
+          On pose ensemble les fondations de ton entreprise en ligne. On clarifie ton message, on structure ta présence, et on crée un site vitrine qui te ressemble vraiment.
         </p>
-        <p class="event-detail">
-          <span>◯</span> Expérience sensorielle · En groupe · Présentiel
-        </p>
-        <a href="experiences.html" class="btn-primary">Je m'inscris</a>
+        <ul class="offre-inclus">
+          <li>Site vitrine inclus</li>
+          <li>1 séance visio d'1h par semaine</li>
+          <li>Discussion ouverte sur WhatsApp</li>
+          <li>À distance, à ton rythme</li>
+          <li>1 mois de SAV offert après réception</li>
+        </ul>
+        <p class="offre-prix">1 500€ <span>· ou 3 fois 500€</span></p>
+        <p class="offre-sav">Au-delà · modifications & mises à jour 35€/h</p>
+        <a href="#contact" class="btn btn-outline">Parlons-en</a>
       </div>
+
     </div>
   </section>
+
+  <hr class="divider">
+
+  <!-- CITATION -->
+  <div class="citation-section">
+    <blockquote>"Tu n'es pas seule dans ce que tu traverses.<br>Et revenir à toi est le chemin le plus courageux."</blockquote>
+    <p class="citation-auteur">Jenny Moreau-Sonko</p>
+  </div>
 
   <!-- JENNY -->
-  <section class="jenny-section" id="jenny">
-    <div class="jenny-inner">
-      <div class="jenny-visual">
-        <div class="jenny-avatar" style="overflow: hidden; padding: 0;">
-        <img src="jenny-accueil.jpeg" alt="Jenny Moreau-Sonko" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; object-position: center 15%;" />
+  <div class="jenny-section" id="jenny">
+    <div>
+      <img src="jenny-accueil.jpeg" alt="Jenny Moreau-Sonko" class="jenny-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="jenny-photo-placeholder" style="display:none;">
+        <span>J</span>
       </div>
+    </div>
+    <div class="jenny-texte">
+      <span class="section-label">À propos</span>
+      <h2>Je suis <em>Jenny</em></h2>
+      <p>Je suis Jenny, accompagnante en reconnexion à soi et consultante en identité digitale, maman de deux garçons.</p>
+      <p>J'accompagne les femmes qui entreprennent à se relier à l'essence de leur projet, pour que leur présence en ligne soit le reflet juste de qui elles sont vraiment.</p>
+      <p>Parce qu'une entreprise qui te ressemble commence toujours par un retour à toi.</p>
+      <a href="#contact" class="btn btn-primary">Me contacter</a>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TEMOIGNAGES -->
+  <section>
+    <span class="section-label">Elles témoignent</span>
+    <h2>Ce qu'elles <em>disent</em></h2>
+    <div class="temoignages">
+
+      <div class="temoignage">
+        <p class="temoignage-texte">
+          "Jenny ne construit pas seulement un site : c'est un accompagnement personnalisé pour vous mettre en lumière, ainsi que vos compétences. Si vous êtes thérapeute et que vous avez envie de franchir le pas, comme moi, vous pouvez la contacter en toute confiance. Elle a également réalisé mes cartes de visite et mes flyers. Merci Jenny pour ce site et cet accompagnement."
+        </p>
+        <div class="temoignage-auteur">
+          <div class="temoignage-initiale">N</div>
+          <div>
+            <p class="temoignage-nom">Nathalie</p>
+            <p class="temoignage-role">Thérapeute · <a href="https://www.nathaliegaignard.com" class="temoignage-lien">nathaliegaignard.com</a></p>
+          </div>
+        </div>
       </div>
 
-      <div class="jenny-content">
-        <p class="section-label">À propos</p>
-        <h2 class="section-title">Je suis <em>Jenny</em></h2>
-        <p class="jenny-bio">
-          Accompagnante en reconnexion à soi & consultante en identité digitale, maman de deux garçons.
+      <div class="temoignage">
+        <p class="temoignage-texte">
+          "Jenny est de ces rares personnes qui allient compétence, initiative et qualité de présence. Elle saisit avec finesse les besoins et les traduit en actions concrètes, structurées et pertinentes. Faire appel à Jenny, c'est s'offrir bien plus qu'un service : c'est choisir une collaboration solide, intelligente et profondément soutenante."
         </p>
-        <p class="jenny-bio">
-          Je crée des espaces, individuels et collectifs, pour les femmes qui cherchent à <strong>revenir à leur centre</strong> au milieu du bruit du quotidien. Parce que j'ai moi-même connu l'épuisement, la déconnexion, le sentiment de ne plus se retrouver.
-        </p>
-        <a href="a-propos.html" class="btn-primary" style="margin-top: 1rem; display: inline-block; background: var(--bleu-profond); box-shadow: 0 4px 20px rgba(42,74,107,0.2);">Mon histoire</a>
+        <div class="temoignage-auteur">
+          <div class="temoignage-initiale">S</div>
+          <div>
+            <p class="temoignage-nom">Suzie Rochefort</p>
+            <p class="temoignage-role">Psychologue · Fondatrice de l'Académie Reconnexion · <a href="https://www.academie-reconnexion.com" class="temoignage-lien">academie-reconnexion.com</a></p>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- ROSE - RESPIRATION -->
-  <section style="padding: 0; overflow: hidden; height: 420px; position: relative;">
-    <img src="rose.jpeg" alt="Rose" style="width: 100%; height: 100%; object-fit: cover; object-position: center 60%;" />
-    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(253,250,250,0.1) 0%, rgba(253,250,250,0.4) 100%);"></div>
-  </section>
+  <hr class="divider">
 
   <!-- CONTACT -->
-  <section id="contact" style="padding: 6rem 4rem; background: var(--gris-doux); text-align: center;">
-    <p class="section-label">Rejoindre</p>
-    <h2 class="section-title">Et si c'était <em>le moment ?</em></h2>
-    <p class="section-intro" style="margin-bottom: 2.5rem;">
-      Une séance, une question, une envie de rejoindre le prochain cercle. Écris-moi.
-    </p>
+  <div class="contact-section" id="contact">
+    <span class="section-label">Contact</span>
+    <h2>Et si c'était <em>le moment ?</em></h2>
+    <p class="section-intro">Une séance, une question, envie d'en savoir plus. Écris-moi.</p>
 
-    <form id="contact-form" style="max-width: 560px; margin: 0 auto; text-align: left;">
-      <div style="margin-bottom: 1.5rem;">
-        <label style="font-family: 'DM Sans', sans-serif; font-size: 0.92rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--texte-moyen); display: block; margin-bottom: 0.5rem;">Prénom</label>
-        <input type="text" id="prenom" placeholder="Ton prénom" required style="width: 100%; padding: 1rem 1.2rem; border: 1px solid rgba(115, 143, 189, 0.25); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--texte-fonce); background: #ffffff; outline: none; transition: border 0.3s;" />
+    <form class="contact-form" name="contact" method="POST" data-netlify="true">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="prenom">Prénom</label>
+          <input type="text" id="prenom" name="prenom" placeholder="Ton prénom">
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Ton adresse email">
+        </div>
       </div>
-
-      <div style="margin-bottom: 1.5rem;">
-        <label style="font-family: 'DM Sans', sans-serif; font-size: 0.92rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--texte-moyen); display: block; margin-bottom: 0.5rem;">Email</label>
-        <input type="email" id="email" placeholder="Ton adresse email" required style="width: 100%; padding: 1rem 1.2rem; border: 1px solid rgba(115, 143, 189, 0.25); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--texte-fonce); background: #ffffff; outline: none; transition: border 0.3s;" />
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Dis-moi ce qui t'amène…"></textarea>
       </div>
-
-      <div style="margin-bottom: 2rem;">
-        <label style="font-family: 'DM Sans', sans-serif; font-size: 0.92rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--texte-moyen); display: block; margin-bottom: 0.5rem;">Message</label>
-        <textarea id="message" placeholder="Ce que tu veux me partager..." rows="5" required style="width: 100%; padding: 1rem 1.2rem; border: 1px solid rgba(115, 143, 189, 0.25); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--texte-fonce); background: #ffffff; outline: none; resize: none; transition: border 0.3s;"></textarea>
-      </div>
-
-      <div style="margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 0.8rem;">
-        <input type="checkbox" id="newsletter-check" style="width: auto; margin-top: 3px; accent-color: var(--rose-mauve); cursor: pointer; flex-shrink: 0;" />
-        <label for="newsletter-check" style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--texte-moyen); letter-spacing: 0; text-transform: none; cursor: pointer; line-height: 1.5;">
-          Je m'inscris à la newsletter pour être informée des actualités
-        </label>
-      </div>
-
-      <div style="text-align: center;">
-        <button type="submit" id="submit-btn" class="btn-primary" style="border: none; cursor: pointer; width: 100%;">Envoyer mon message</button>
-      </div>
-
-      <div id="form-message" style="margin-top: 1.5rem; text-align: center; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; display: none;"></div>
+      <label class="form-newsletter">
+        <input type="checkbox" name="newsletter">
+        Je m'inscris à la newsletter pour être informée des actualités
+      </label>
+      <button type="submit" class="btn btn-rose">Envoyer mon message</button>
     </form>
 
-    <script>
-      document.getElementById('contact-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const btn = document.getElementById('submit-btn');
-        const msg = document.getElementById('form-message');
-        btn.textContent = 'Envoi en cours...';
-        btn.disabled = true;
-        try {
-          const res = await fetch('/.netlify/functions/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              prenom: document.getElementById('prenom').value,
-              email: document.getElementById('email').value,
-              message: document.getElementById('message').value
-            })
-          });
-          if (res.ok) {
-            // Inscription newsletter si cochée
-            const newsletterCheck = document.getElementById('newsletter-check');
-            if (newsletterCheck && newsletterCheck.checked) {
-              await fetch('/.netlify/functions/newsletter', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  prenom: document.getElementById('prenom').value,
-                  email: document.getElementById('email').value
-                })
-              });
-            }
-            msg.style.display = 'block';
-            msg.style.color = '#2a4a6b';
-            msg.textContent = 'Ton message a bien été envoyé. Je te réponds très vite.';
-            document.getElementById('contact-form').reset();
-          } else {
-            throw new Error();
-          }
-        } catch {
-          msg.style.display = 'block';
-          msg.style.color = '#db88a4';
-          msg.textContent = 'Une erreur est survenue. Tu peux me contacter directement par email.';
-        }
-        btn.textContent = 'Envoyer mon message';
-        btn.disabled = false;
-      });
-    </script>
-
-    <p style="margin-top: 2.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--texte-moyen);">
-      Tu préfères réserver directement ?
-    </p>
-    <a href="https://calendly.com/jennymoreau-contact/new-meeting" class="btn-secondary" target="_blank" style="display: inline-block; margin-top: 1rem;">Réserver une séance</a>
-  </section>
+    <p class="contact-ou">— ou —</p>
+    <div style="text-align:center;">
+      <a href="https://calendly.com/jennymoreau-contact/new-meeting" class="btn btn-primary">Réserver directement une séance</a>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
-    <p class="footer-logo">Au <span>cœur</span> d'elles</p>
-    <p class="footer-tagline">Jenny Moreau-Sonko · Accompagnante en reconnexion à soi & consultante en identité digitale</p>
+    <p class="footer-logo">Au cœur d'elles</p>
+    <p class="footer-sub">Jenny Moreau-Sonko · Accompagnante en reconnexion à soi & consultante en identité digitale</p>
     <ul class="footer-links">
-      <li><a href="#univers">Accompagnement</a></li>
-      <li><a href="#evenement">Expériences</a></li>
+      <li><a href="#offres">Les offres</a></li>
       <li><a href="#jenny">À propos</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <p style="margin-bottom:0.8rem;"><a href="mentions-legales.html" style="font-family: DM Sans, sans-serif; font-size: 0.68rem; color: rgba(255,255,255,0.4); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase;">Mentions légales</a></p>
-    <p class="footer-copy">© 2026 Jenny Moreau-Sonko · Tous droits réservés</p>
+    <p class="footer-copy"><a href="/mentions-legales" style="color:inherit;text-decoration:none;">Mentions légales</a> · © 2026 Jenny Moreau-Sonko · Tous droits réservés</p>
   </footer>
 
 </body>
