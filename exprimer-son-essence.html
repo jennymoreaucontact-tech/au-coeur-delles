@@ -1466,6 +1466,16 @@ html,body{max-width:100%;overflow-x:hidden}
   input,textarea,select,button{font-size:16px}
 }
 </style>
+
+<style id="v148-mobile-header-menu-fix">
+/* V148 — bandeau mobile beige chaud + correctif menu hamburger */
+@media (max-width:760px){
+  .topbar{background:rgba(237,226,214,.98)!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important;}
+  .mobile-menu-toggle{background:rgba(253,249,245,.72)!important;}
+  .nav>.links{background:rgba(237,226,214,.99)!important;}
+  .nav>.links.is-open{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;}
+}
+</style>
 </head>
 <body>
   <header class="topbar">
