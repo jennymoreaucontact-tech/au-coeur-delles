@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Exprimer son essence | Au cœur d’elle</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
   <meta name="description" content="Identité de marque, création de site et communication digitale pour les entrepreneures qui souhaitent donner une forme juste, sensible et cohérente à leur univers.">
   <meta name="robots" content="index, follow">
@@ -1441,7 +1441,8 @@ h1,h2,h3{color:var(--navy)}
 html,body{max-width:100%;overflow-x:hidden}
 .mobile-menu-toggle{display:none}
 @media(max-width:1000px){
-  .nav{position:relative}
+  .nav{position:relative;grid-template-columns:minmax(0,1fr) auto!important}
+  .nav>.nav-cta{display:none!important}
   .mobile-menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;padding:0;border:1px solid rgba(30,51,76,.18);border-radius:50%;background:rgba(255,255,255,.82);color:#1E334C;cursor:pointer;justify-self:end;z-index:42;-webkit-tap-highlight-color:transparent}
   .mobile-menu-toggle span,.mobile-menu-toggle::before,.mobile-menu-toggle::after{content:"";display:block;position:absolute;width:19px;height:1.5px;background:currentColor;transition:transform .25s ease,opacity .2s ease}
   .mobile-menu-toggle::before{transform:translateY(-6px)}
@@ -1469,18 +1470,18 @@ html,body{max-width:100%;overflow-x:hidden}
 <body>
   <header class="topbar">
     <div class="shell nav">
-      <a class="brand" href="/index.html" aria-label="Au cœur d'elle — accueil">
+      <a class="brand" href="index.html" aria-label="Au cœur d'elle — accueil">
         <span>
           <span class="brand-name">AU CŒUR D’ELLE</span>
           <span class="brand-sub">Revenir à soi · Exprimer son essence</span>
         </span>
       </a>
       <ul class="links">
-        <li><a href="/index.html">Accueil</a></li>
-        <li><a href="/revenir-a-soi.html">Au cœur de toi</a></li>
-        <li><a class="active" href="/exprimer-son-essence.html">Exprimer son essence</a></li>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="revenir-a-soi.html">Au cœur de toi</a></li>
+        <li><a class="active" href="exprimer-son-essence.html">Exprimer son essence</a></li>
         <li><a href="#realisations">Réalisations</a></li>
-        <li><a href="/index.html#a-propos">À propos</a></li>
+        <li><a href="index.html#a-propos">À propos</a></li>
       </ul>
       <button class="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
       <a class="nav-cta" href="https://calendly.com/jennymoreau-contact/new-meeting">Prendre RDV&nbsp; ✦</a>
@@ -1519,7 +1520,7 @@ html,body{max-width:100%;overflow-x:hidden}
         <div class="offers-title branch-offers-title" id="accompagnement"><p class="eyebrow">L’accompagnement</p><h2>Deux façons de donner vie à ton projet.</h2></div>
         <div class="offer-grid offer-grid-duo">
           <article class="offer offer-boussole"><img class="offer-image" src="assets/boussole-workspace.webp" alt="Boussole posée sur un espace de travail" loading="lazy"><div class="offer-body"><div class="offer-num">BOUSSOLE</div><h3>Clarifier la direction</h3><p>Une séance pour prendre de la hauteur sur ton projet, t’y relier, clarifier ton message, ton positionnement, puis repartir avec une vision plus nette de la suite.</p><div class="price-label">Pour faire le point avant de créer</div><a class="more" href="https://calendly.com/jennymoreau-contact/new-meeting">Je veux faire le point ✦</a></div></article>
-          <article class="offer offer-incarnation"><img class="offer-image" src="assets/incarnation-workspace.webp" alt="Création d’une identité de marque Au cœur d’elle" loading="lazy"><div class="offer-body"><div class="offer-num">INCARNATION</div><h3>Donner forme</h3><p>Un accompagnement complet pour clarifier ton message, structurer ta présence et créer un site vitrine qui te ressemble.</p><div class="price-label">Accompagnement personnalisé</div><div class="price">1 500 € <small style="font:400 .66rem 'DM Sans';color:#77748a">· ou 2 × 750 €</small></div><a class="more" href="/questionnaire.html">Je veux donner vie à mon projet ✦</a></div></article>
+          <article class="offer offer-incarnation"><img class="offer-image" src="assets/incarnation-workspace.webp" alt="Création d’une identité de marque Au cœur d’elle" loading="lazy"><div class="offer-body"><div class="offer-num">INCARNATION</div><h3>Donner forme</h3><p>Un accompagnement complet pour clarifier ton message, structurer ta présence et créer un site vitrine qui te ressemble.</p><div class="price-label">Accompagnement personnalisé</div><div class="price">1 500 € <small style="font:400 .66rem 'DM Sans';color:#77748a">· ou 2 × 750 €</small></div><a class="more" href="questionnaire.html">Je veux donner vie à mon projet ✦</a></div></article>
         </div>
       </div>
     </section>
@@ -1618,7 +1619,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <h2 id="guide-project-title">Je ne crée pas seulement ton site.<br><em>Je viens à la rencontre de ton univers.</em></h2>
       <p>J’allie intuition, création et expertise digitale pour t’aider à créer une communication alignée et magnétique.</p>
       <p>Un accompagnement profondément humain pour donner vie à une présence digitale qui te ressemble et qui rayonne.</p>
-      <a class="btn btn-primary" href="/questionnaire.html">Parler de mon projet <span>✦</span></a>
+      <a class="btn btn-primary" href="questionnaire.html">Parler de mon projet <span>✦</span></a>
     </div>
   </div>
 </section>
@@ -1630,9 +1631,9 @@ html,body{max-width:100%;overflow-x:hidden}
         <span class="footer-sub">Revenir à soi · Exprimer son essence</span>
       </div>
       <div class="footer-links">
-        <a href="/mentions-legales.html">Mentions légales</a>
-        <a href="/politique-confidentialite.html">Politique de confidentialité</a>
-        <a href="/cgv.html">CGV</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        <a href="cgv.html">CGV</a>
       </div>
       <div class="footer-bottom">© 2026 Jenny Moreau-Sonko · Tous droits réservés</div>
     </div>
@@ -1643,6 +1644,8 @@ html,body{max-width:100%;overflow-x:hidden}
   var toggle=document.querySelector('.mobile-menu-toggle');
   var menu=document.querySelector('.nav > .links');
   if(!toggle||!menu)return;
+  var desktopCta=document.querySelector('.nav > .nav-cta');
+  if(desktopCta&&!menu.querySelector('.mobile-menu-cta')){var c=desktopCta.cloneNode(true);c.classList.add('mobile-menu-cta');c.classList.remove('nav-cta');c.style.marginTop='8px';menu.appendChild(c);}
   function closeMenu(){menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
   toggle.addEventListener('click',function(){var open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));menu.classList.toggle('is-open',!open);});
   menu.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu();});

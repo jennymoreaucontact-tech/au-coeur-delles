@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Au cœur d’elle | Identité de marque & communication digitale</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
   <meta name="description" content="Identité de marque, création de site et communication digitale pour les entrepreneures qui souhaitent donner une forme juste, sensible et cohérente à leur univers.">
   <meta name="robots" content="index, follow">
@@ -1562,7 +1562,8 @@ h1,h2,h3{color:var(--navy)}
 html,body{max-width:100%;overflow-x:hidden}
 .mobile-menu-toggle{display:none}
 @media(max-width:1000px){
-  .nav{position:relative}
+  .nav{position:relative;grid-template-columns:minmax(0,1fr) auto!important}
+  .nav>.nav-cta{display:none!important}
   .mobile-menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;padding:0;border:1px solid rgba(30,51,76,.18);border-radius:50%;background:rgba(255,255,255,.82);color:#1E334C;cursor:pointer;justify-self:end;z-index:42;-webkit-tap-highlight-color:transparent}
   .mobile-menu-toggle span,.mobile-menu-toggle::before,.mobile-menu-toggle::after{content:"";display:block;position:absolute;width:19px;height:1.5px;background:currentColor;transition:transform .25s ease,opacity .2s ease}
   .mobile-menu-toggle::before{transform:translateY(-6px)}
@@ -1651,7 +1652,7 @@ html,body{max-width:100%;overflow-x:hidden}
               <h3>REVENIR À SOI</h3>
               <p class="pathway-kicker">Renouer avec ta sécurité intérieure.</p>
               <p>Pour les femmes qui ressentent le besoin de mieux comprendre ce qui se vit en elles, de revenir au corps et de retrouver davantage de sécurité pour s’écouter et prendre leur place dans le monde.</p>
-              <a href="/revenir-a-soi.html">Découvrir l’accompagnement <span>→</span></a>
+              <a href="revenir-a-soi.html">Découvrir l’accompagnement <span>→</span></a>
             </div>
           </article>
           <article class="pathway pathway-essence">
@@ -1661,7 +1662,7 @@ html,body{max-width:100%;overflow-x:hidden}
               <h3>EXPRIMER SON ESSENCE</h3>
               <p class="pathway-kicker">Donner forme à ce qui vit en toi.</p>
               <p>Pour les entrepreneures qui souhaitent clarifier ce qu’elles portent en elles, trouver les mots, les couleurs et l’univers qui leur ressemblent, puis le traduire en une présence en ligne magnétique.</p>
-              <a href="/exprimer-son-essence.html">Découvrir cet univers <span>→</span></a>
+              <a href="exprimer-son-essence.html">Découvrir cet univers <span>→</span></a>
             </div>
           </article>
         </div>
@@ -1721,9 +1722,9 @@ html,body{max-width:100%;overflow-x:hidden}
         <span class="footer-sub">Revenir à soi · Exprimer son essence</span>
       </div>
       <div class="footer-links">
-        <a href="/mentions-legales.html">Mentions légales</a>
-        <a href="/politique-confidentialite.html">Politique de confidentialité</a>
-        <a href="/cgv.html">CGV</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        <a href="cgv.html">CGV</a>
       </div>
       <div class="footer-bottom">© 2026 Jenny Moreau-Sonko · Tous droits réservés</div>
     </div>
@@ -1748,6 +1749,8 @@ var AUTOHIDE = Boolean(0);
   var toggle=document.querySelector('.mobile-menu-toggle');
   var menu=document.querySelector('.nav > .links');
   if(!toggle||!menu)return;
+  var desktopCta=document.querySelector('.nav > .nav-cta');
+  if(desktopCta&&!menu.querySelector('.mobile-menu-cta')){var c=desktopCta.cloneNode(true);c.classList.add('mobile-menu-cta');c.classList.remove('nav-cta');c.style.marginTop='8px';menu.appendChild(c);}
   function closeMenu(){menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
   toggle.addEventListener('click',function(){var open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));menu.classList.toggle('is-open',!open);});
   menu.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu();});
