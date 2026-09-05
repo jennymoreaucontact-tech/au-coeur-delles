@@ -1705,13 +1705,13 @@ html,body{max-width:100%;overflow-x:hidden}
         <h2 id="newsletter-title">Quelques mots, directement dans ta boîte mail.</h2>
         <p class="newsletter-intro">Inscris-toi ici pour recevoir les nouvelles d’Au cœur d’elle.</p>
         <div id="sib-form-container" class="sib-form-container">
-          <div id="error-message" class="sib-form-message-panel newsletter-message newsletter-message-error" role="alert">
+          <div id="error-message" class="sib-form-message-panel newsletter-message newsletter-message-error" role="alert" hidden>
             <div class="sib-form-message-panel__text sib-form-message-panel__text--center"><span class="sib-form-message-panel__inner-text">Nous n’avons pas pu confirmer ton inscription. Vérifie les informations saisies et réessaie.</span></div>
           </div>
-          <div id="success-message" class="sib-form-message-panel newsletter-message newsletter-message-success" role="status">
+          <div id="success-message" class="sib-form-message-panel newsletter-message newsletter-message-success" role="status" hidden>
             <div class="sib-form-message-panel__text sib-form-message-panel__text--center"><span class="sib-form-message-panel__inner-text">Ton inscription est confirmée. Merci et bienvenue 🤍</span></div>
           </div>
-          <form id="sib-form" class="newsletter-form" action="https://a1a6ccb8.sibforms.com/serve/MUIFAF9ORdfk5YhtU6xFFT1vzbZYtcTmIhS7sIQ3YTzs1QMqKG4tuLqxFONqi62hxDnInRi1dJXNyd3C9OPvlbLqZsdTGOTyCZUpF2mTHbnYWCr9IoWKQn9lheGocQzC3byfG5hodgy6Gyi3GsPK17cK3ew3bm68x8W-W-njfod5UYzLDhdBzIGFjy22Sx0greZfeE9uwESh8cyT5w==" method="POST" data-type="subscription">
+          <form id="sib-form" class="newsletter-form" action="https://a1a6ccb8.sibforms.com/serve/MUIFAF9ORdfk5YhtU6xFFT1vzbZYtcTmIhS7sIQ3YTzs1QMqKG4tuLqxFONqi62hxDnInRi1dJXNyd3C9OPvlbLqZsdTGOTyCZUpF2mTHbnYWCr9IoWKQn9lheGocQzC3byfG5hodgy6Gyi3GsPK17cK3ew3bm68x8W-W-njfod5UYzLDhdBzIGFjy22Sx0greZfeE9uwESh8cyT5w==" method="POST" accept-charset="UTF-8">
             <div class="sib-input sib-form-block newsletter-field">
               <div class="form__entry entry_block">
                 <div class="form__label-row"><div class="entry__field">
@@ -1772,19 +1772,21 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
   </footer>
 
-<script>
-window.REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays';
-window.LOCALE = 'fr';
-window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Les informations fournies ne sont pas valides. Vérifie le format du champ et réessaie.";
-window.REQUIRED_ERROR_MESSAGE = "Tu dois renseigner ce champ.";
-window.GENERIC_INVALID_MESSAGE = "Les informations fournies ne sont pas valides. Vérifie le format du champ et réessaie.";
-window.INVALID_NUMBER = "Les informations fournies ne sont pas valides.";
-window.INVALID_DATE = "Veuillez saisir une date valide";
-window.REQUIRED_MULTISELECT_MESSAGE = 'Veuillez choisir au moins une option';
-window.translation = {common:{selectedList:'{quantity} liste sélectionnée',selectedLists:'{quantity} listes sélectionnées',selectedOption:'{quantity} sélectionné',selectedOptions:'{quantity} sélectionnés'}};
-var AUTOHIDE = Boolean(0);
+<script id="newsletter-native-submit">
+(function(){
+  var form=document.getElementById('sib-form');
+  if(!form)return;
+  form.addEventListener('submit',function(e){
+    var first=form.querySelector('#PRENOM');
+    var email=form.querySelector('#EMAIL');
+    var optin=form.querySelector('#OPT_IN');
+    if(!first.value.trim() || !email.validity.valid || !optin.checked){
+      e.preventDefault();
+      form.reportValidity();
+    }
+  });
+})();
 </script>
-<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 
 <script id="v138-mobile-nav">
 (function(){
