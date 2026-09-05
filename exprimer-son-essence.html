@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Au cœur d’elle | Identité de marque & communication digitale</title>
+  <title>Exprimer son essence | Au cœur d’elle</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
@@ -1067,19 +1067,6 @@ h1,h2,h3{font-weight:500}
   border-top:1px solid rgba(184,210,230,.18)!important;
 }
 
-
-/* V91 — images des deux portes */
-.pathway{overflow:hidden;padding:0 !important;display:flex;flex-direction:column}
-.pathway-image{width:100%;height:260px;overflow:hidden}
-.pathway-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
-.pathway:hover .pathway-image img{transform:scale(1.025)}
-.pathway-content{padding:34px 36px 38px;display:flex;flex-direction:column;flex:1}
-.pathway-content .pathway-num{margin-bottom:18px}
-.pathway-content a{margin-top:auto;padding-top:18px}
-@media(max-width:700px){.pathway-image{height:220px}.pathway-content{padding:28px 24px 30px}}
-
-<style id="v133-revenir-photo-index">
-.pathway-self .pathway-image img{object-position:center center!important;}
 </style>
 
 <style id="v84-for-you">
@@ -1149,22 +1136,6 @@ h1,h2,h3{font-weight:500}
 .hero-visual{justify-content:center;}
 .hero-visual-frame{width:min(88vw,470px);}
 }
-</style>
-
-<style id="v90-home-architecture">
-/* V90 — accueil = maison / porte d’entrée, pas catalogue */
-.home-breath{padding:72px 0;background:#fcfaf7;text-align:center}
-.home-breath-inner{max-width:760px;margin:auto}
-.home-breath span{color:#8F7589;font-size:1rem}
-.home-breath p{font-family:"Cormorant Garamond",serif;font-size:1.75rem;line-height:1.35;color:#1E334C;margin:16px 0 0}
-.portfolio .project-copy .project-block,.portfolio .project-copy .project-testimonial{display:none}
-.portfolio .project{align-items:center}
-.portfolio .project-copy{padding-top:0}
-.portfolio .project-copy h3{margin-bottom:20px}
-.final .final-inner{max-width:860px}
-.final-paths{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:26px}
-.final-paths .btn-secondary{background:#fff;color:#1E334C;border:1px solid rgba(184,139,170,.45)}
-@media(max-width:700px){.home-breath{padding:54px 0}.home-breath p{font-size:1.48rem}}
 </style>
 
 <style id="v93-warm-cream-palette">
@@ -1298,262 +1269,170 @@ h1,h2,h3{color:var(--navy)}
 </style>
 
 
-<style id="v96-for-you-card-test">
-/* V96 — test : cartes « Pour toi si… » unifiées, plus éditoriales */
-.for-you{background:#F8F0E8!important;}
-.for-you-card-blue,.for-you-card-rose,.for-you-card-mauve{
-  background:#FDF9F5!important;
-  border:1px solid rgba(163,111,138,.22)!important;
-  box-shadow:0 14px 34px rgba(30,51,76,.04)!important;
+<style id="v127-essence-hero">
+/* V127 — Hero « Exprimer son essence » harmonisé avec Au cœur de toi */
+.essence-hero{
+  background:var(--cream)!important;
+  padding:142px 0 82px;
+  overflow:hidden;
 }
-.for-you-card-blue .for-you-symbol{color:#1E334C!important;}
-.for-you-card-rose .for-you-symbol{color:#B78696!important;}
-.for-you-card-mauve .for-you-symbol{color:#A36F8A!important;}
-.for-you-card p{color:#1E334C!important;}
-</style>
-<style id="v96-no-for-you-symbols">
-.for-you-card{justify-content:center!important;}
-.for-you-card p{margin:0!important;}
-</style>
-
-<style id="v97-about-newsletter">
-/* V97 — fin de page simplifiée : À propos + newsletter */
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.about-home{
-  background:var(--cream-light,#FDF9F5);
-  padding:108px 0 112px;
-}
-.about-home-grid{
+.essence-hero-layout{
   display:grid;
-  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  grid-template-columns:minmax(0,1.05fr) minmax(390px,.82fr);
   gap:76px;
   align-items:center;
 }
-.about-home-photo{
-  position:relative;
+.essence-hero-copy{max-width:590px}
+.essence-hero-copy .eyebrow{
+  color:var(--navy)!important;
+  margin-bottom:22px;
 }
-.about-home-photo img{
-  width:100%;
-  aspect-ratio:4/5;
+.essence-hero h1{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(3.7rem,6vw,6.1rem);
+  line-height:.92;
+  letter-spacing:-.025em;
+  font-weight:500;
+  color:var(--navy);
+  margin:0 0 18px;
+}
+.essence-hero-sub{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(1.55rem,2.2vw,2.05rem);
+  line-height:1.25;
+  font-style:italic;
+  color:var(--mauve-deep);
+  margin:0 0 22px;
+}
+.essence-hero-text{
+  max-width:530px;
+  color:var(--navy-soft);
+  font-size:1rem;
+  line-height:1.8;
+  margin:0 0 31px;
+}
+.essence-hero-visual{display:flex;justify-content:flex-end}
+.essence-hero-frame{
+  width:min(100%,470px);
+  aspect-ratio:.70/1;
+  border-radius:220px 220px 28px 28px;
+  overflow:hidden;
+  box-shadow:0 26px 64px rgba(30,51,76,.10);
+  background:#d8c0ab;
+}
+.essence-hero-frame img{
+  width:100%;height:100%;
   object-fit:cover;
-  object-position:center center;
+  object-position:center 49%;
   display:block;
-  border-radius:160px 160px 26px 26px;
-  box-shadow:0 22px 54px rgba(30,51,76,.10);
 }
-.about-home-copy{max-width:590px}
-.about-home-copy .eyebrow{margin-bottom:14px}
-.about-home-copy h2{
-  font-family:'Cormorant Garamond',serif;
-  color:var(--navy,#1E334C);
-  font-size:3.15rem;
-  line-height:1;
-  margin:0 0 28px;
-  font-weight:500;
-}
-.about-home-copy p{
-  color:#4d5870;
-  font-size:.98rem;
-  line-height:1.9;
-  margin:0 0 17px;
-}
-.about-home-copy p strong{color:var(--navy,#1E334C);font-weight:600}
-
-.newsletter-home{
-  background:var(--cream,#F8F0E8);
-  padding:88px 0 92px;
-  border-top:1px solid rgba(163,111,138,.13);
-}
-.newsletter-inner{
-  max-width:900px;
-  margin:0 auto;
-  text-align:center;
-}
-.newsletter-inner h2{
-  font-family:'Cormorant Garamond',serif;
-  color:var(--navy,#1E334C);
-  font-size:2.65rem;
-  line-height:1.08;
-  margin:10px auto 18px;
-  font-weight:500;
-}
-.newsletter-intro{
-  max-width:600px;
-  margin:0 auto 30px;
-  color:#5b6170;
-  line-height:1.75;
-}
-.newsletter-form{
-  display:grid;
-  grid-template-columns:1fr 1.35fr auto;
-  gap:12px;
-  max-width:830px;
-  margin:0 auto;
-  align-items:stretch;
-}
-.newsletter-form input{
-  width:100%;
-  min-height:54px;
-  border:1px solid rgba(163,111,138,.24);
-  border-radius:999px;
-  background:#FFFCF9;
-  padding:0 20px;
-  font:400 .9rem 'DM Sans',sans-serif;
-  color:var(--navy,#1E334C);
-  outline:none;
-}
-.newsletter-form input:focus{
-  border-color:var(--mauve,#A36F8A);
-  box-shadow:0 0 0 3px rgba(163,111,138,.08);
-}
-.newsletter-form button{
-  border:0;
-  min-height:54px;
-  padding:0 25px;
-  border-radius:999px;
-  background:var(--mauve,#A36F8A);
-  color:#fff;
-  font:600 .75rem 'DM Sans',sans-serif;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  cursor:pointer;
-}
-.newsletter-note{
-  margin:16px auto 0;
-  max-width:700px;
-  font-size:.72rem;
-  line-height:1.6;
-  color:#7b7278;
-}
-@media(max-width:820px){
-  .about-home{padding:72px 0 76px}
-  .about-home-grid{grid-template-columns:1fr;gap:38px}
-  .about-home-photo{max-width:540px;margin:0 auto}
-  .about-home-copy{max-width:680px;margin:0 auto}
-  .about-home-copy h2{font-size:2.65rem}
-  .newsletter-home{padding:68px 0 72px}
-  .newsletter-form{grid-template-columns:1fr 1fr}
-  .newsletter-form button{grid-column:1/-1}
+.essence-branch{padding-top:86px!important}
+.essence-branch-heading{margin-bottom:54px!important}
+.essence-branch-heading h2{margin-bottom:0!important}
+.essence-branch-heading>p:last-child:not(.eyebrow){display:none}
+@media(max-width:900px){
+  .essence-hero{padding:124px 0 68px}
+  .essence-hero-layout{grid-template-columns:1fr;gap:44px}
+  .essence-hero-copy{text-align:center;margin:0 auto}
+  .essence-hero-text{margin-left:auto;margin-right:auto}
+  .essence-hero-visual{justify-content:center}
+  .essence-hero-frame{width:min(82vw,470px)}
 }
 @media(max-width:560px){
-  .about-home-photo img{border-radius:110px 110px 22px 22px}
-  .about-home-copy h2{font-size:2.35rem}
-  .newsletter-inner h2{font-size:2.15rem}
-  .newsletter-form{grid-template-columns:1fr}
-  .newsletter-form button{grid-column:auto}
+  .essence-hero{padding:108px 0 54px}
+  .essence-hero h1{font-size:3.45rem}
+  .essence-hero-sub{font-size:1.5rem}
+  .essence-hero-text{font-size:.94rem}
+  .essence-hero-frame{width:min(88vw,410px);border-radius:180px 180px 24px 24px}
+  .essence-branch{padding-top:66px!important}
 }
-
-.newsletter-consent{grid-column:1/-1;display:flex;align-items:flex-start;gap:10px;max-width:760px;margin:7px auto 0;text-align:left;color:#6f6970;font:400 .72rem/1.55 'DM Sans',sans-serif}.newsletter-consent input{width:16px!important;min-height:16px!important;height:16px;margin:2px 0 0;padding:0;border-radius:4px;flex:0 0 auto;accent-color:var(--mauve,#A36F8A)}.newsletter-message{display:none;max-width:700px;margin:0 auto 20px;padding:13px 18px;border-radius:16px;font:400 .82rem/1.5 'DM Sans',sans-serif}.newsletter-message-error{background:#fff0f0;color:#7a3838}.newsletter-message-success{background:#f0f7f2;color:#365d45}.input--hidden{display:none!important}
 </style>
 
-<style id="v99-responsive-pass">
-/* V99 — Responsive pass complet : tablette + mobile */
-@media (max-width: 1100px){
-  .hero .shell{max-width:100%!important;}
-  .hero-layout{grid-template-columns:minmax(0,1fr) minmax(340px,.78fr)!important;gap:46px!important;}
-  .hero-visual-frame{width:min(100%,440px)!important;}
-  .pathways-grid{gap:18px!important;}
+
+<style id="v129-boussole-duo">
+/* V129 — Boussole + Incarnation : deux niveaux d'accompagnement */
+.offer-grid-duo{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:30px!important;align-items:stretch}
+.offer-grid-duo .offer{grid-template-columns:1fr!important;min-height:0!important}
+.offer-grid-duo .offer-image{width:100%;height:270px!important;min-height:0!important;object-fit:cover}
+.offer-grid-duo .offer-boussole .offer-image{object-position:center 56%}
+.offer-grid-duo .offer-incarnation .offer-image{object-position:center 50%}
+.offer-grid-duo .offer-body{min-height:315px}
+.offer-grid-duo .offer-body .more{margin-top:auto!important}
+.offer-grid-duo .price-label{margin-top:10px}
+.offer-grid-duo .price{margin-top:3px;margin-bottom:8px}
+.offer-boussole{border-top:3px solid var(--navy)!important}
+.offer-incarnation{border-top:3px solid var(--mauve)!important}
+.offer-boussole h3{color:var(--navy)!important}
+.offer-incarnation h3{color:var(--mauve-deep)!important}
+@media(max-width:820px){
+  .offer-grid-duo{grid-template-columns:1fr!important;gap:28px!important}
+  .offer-grid-duo .offer-image{height:240px!important}
+  .offer-grid-duo .offer-body{min-height:0}
 }
+</style>
 
-@media (max-width: 900px){
-  .topbar{height:82px!important;}
-  .nav{grid-template-columns:1fr auto!important;gap:18px!important;}
-  .brand-name{font-size:1.28rem!important;}
-  .brand-sub{font-size:.58rem!important;white-space:normal!important;max-width:250px!important;}
-  .nav-cta{font-size:.56rem!important;padding:10px 14px!important;white-space:nowrap!important;}
-  .hero{padding:120px 0 64px!important;}
-  .hero-layout{grid-template-columns:1fr!important;gap:40px!important;}
-  .hero-inner{max-width:680px!important;text-align:center!important;margin:0 auto!important;}
-  .hero-copy{max-width:590px!important;margin-left:auto!important;margin-right:auto!important;}
-  .hero-visual{justify-content:center!important;}
-  .hero-visual-frame{width:min(78vw,500px)!important;}
-  .global-approach{padding:78px 0 68px!important;}
-  .pathways{padding:20px 0 80px!important;}
-  .pathways-grid{grid-template-columns:1fr!important;max-width:700px;margin:0 auto!important;}
-  .pathway{min-height:0!important;}
-  .pathway-image{height:290px!important;}
-  .for-you{padding:76px 0 80px!important;}
-  .for-you-grid{grid-template-columns:1fr!important;max-width:700px;margin:0 auto!important;}
-  .for-you-card{min-height:0!important;padding:30px 30px!important;}
-  .about-home{padding:78px 0 82px!important;}
-  .about-home-grid{grid-template-columns:1fr!important;gap:42px!important;max-width:720px!important;margin:0 auto!important;}
-  .about-home-photo{max-width:520px!important;margin:0 auto!important;}
-  .about-home-copy{max-width:680px!important;margin:0 auto!important;text-align:left!important;}
-  .newsletter-home{padding:72px 0 76px!important;}
-  .newsletter-form{grid-template-columns:1fr 1fr!important;max-width:720px!important;}
-  .newsletter-form button{grid-column:1/-1!important;width:100%!important;}
-  .site-footer .footer-inner{gap:24px!important;}
+<style id="v130-guide-project">
+/* V130 — Bloc accompagnante + CTA final */
+.guide-project{
+  background:var(--cream, #F8F0E8);
+  padding:108px 0 112px;
 }
-
-@media (max-width: 680px){
-  html{overflow-x:hidden;}
-  body{font-size:16px!important;overflow-x:hidden;}
-  .shell{width:calc(100% - 34px)!important;}
-  .topbar{height:74px!important;background:rgba(248,240,232,.96)!important;backdrop-filter:blur(10px)!important;}
-  .nav{display:grid!important;grid-template-columns:1fr!important;}
-  .links,.nav-cta{display:none!important;}
-  .brand{justify-self:start!important;}
-  .brand-name{font-size:1.18rem!important;letter-spacing:.08em!important;}
-  .brand-sub{font-size:.54rem!important;max-width:235px!important;margin-top:4px!important;}
-
-  .hero{padding:104px 0 52px!important;}
-  .hero-layout{gap:30px!important;}
-  .hero-title-one-line{font-size:clamp(2rem,10vw,3rem)!important;line-height:1!important;white-space:normal!important;}
-  .hero-heart{font-size:1rem!important;margin-top:18px!important;}
-  .hero-copy{font-size:.94rem!important;line-height:1.72!important;}
-  .hero .btn{width:100%!important;max-width:330px!important;justify-content:center!important;}
-  .hero-visual-frame{width:min(94vw,430px)!important;padding:7px!important;border-radius:140px 140px 22px 22px!important;}
-  .hero-visual img{border-radius:134px 134px 18px 18px!important;}
-
-  .eyebrow{font-size:.61rem!important;letter-spacing:.22em!important;}
-  .global-approach{padding:62px 0 56px!important;}
-  .global-approach h2,.pathways-heading h2{font-size:2rem!important;line-height:1.08!important;}
-  .global-approach-copy p{font-size:.94rem!important;line-height:1.78!important;}
-  .approach-manifesto{font-size:1.25rem!important;margin-top:28px!important;}
-
-  .pathways{padding:10px 0 62px!important;}
-  .pathways-heading{margin-bottom:30px!important;}
-  .pathway{padding:0!important;overflow:hidden!important;border-radius:24px!important;}
-  .pathway-image{height:220px!important;}
-  .pathway-content{padding:28px 24px 30px!important;}
-  .pathway h3{font-size:1.72rem!important;}
-  .pathway-kicker{font-size:1.12rem!important;}
-  .pathway p{font-size:.92rem!important;line-height:1.7!important;}
-  .pathway-content a{width:100%!important;text-align:center!important;justify-content:center!important;}
-
-  .for-you{padding:58px 0 64px!important;}
-  .for-you-heading{margin-bottom:28px!important;}
-  .for-you-card{padding:24px 22px!important;border-radius:20px!important;}
-  .for-you-card p{font-size:.94rem!important;line-height:1.65!important;}
-
-  .about-home{padding:62px 0 66px!important;}
-  .about-home-grid{gap:32px!important;}
-  .about-home-photo{width:100%!important;max-width:430px!important;}
-  .about-home-photo img{border-radius:110px 110px 20px 20px!important;}
-  .about-home-copy h2{font-size:2.3rem!important;margin-bottom:22px!important;}
-  .about-home-copy p{font-size:.93rem!important;line-height:1.78!important;margin-bottom:15px!important;}
-
-  .newsletter-home{padding:58px 0 62px!important;}
-  .newsletter-inner h2{font-size:2rem!important;line-height:1.08!important;}
-  .newsletter-intro{font-size:.92rem!important;margin-bottom:24px!important;}
-  .newsletter-form{grid-template-columns:1fr!important;gap:10px!important;}
-  .newsletter-form input,.newsletter-form button{min-height:52px!important;}
-  .newsletter-form button{grid-column:auto!important;}
-  .newsletter-consent{font-size:.69rem!important;line-height:1.5!important;margin-top:8px!important;}
-  .newsletter-note{font-size:.68rem!important;}
-
-  .site-footer{padding:42px 0 30px!important;}
-  .site-footer .footer-inner{display:flex!important;flex-direction:column!important;align-items:flex-start!important;text-align:left!important;}
-  .footer-links{display:flex!important;flex-direction:column!important;gap:8px!important;align-items:flex-start!important;}
-  .footer-bottom{width:100%!important;text-align:left!important;padding-top:18px!important;}
+.guide-project-grid{
+  display:grid;
+  grid-template-columns:minmax(330px,.88fr) minmax(0,1.12fr);
+  gap:86px;
+  align-items:center;
+  max-width:1080px;
 }
-
-@media (max-width: 380px){
-  .shell{width:calc(100% - 26px)!important;}
-  .hero-title-one-line{font-size:1.95rem!important;}
-  .hero-visual-frame{width:100%!important;}
-  .global-approach h2,.pathways-heading h2{font-size:1.82rem!important;}
-  .about-home-copy h2,.newsletter-inner h2{font-size:1.9rem!important;}
+.guide-project-photo{
+  width:min(100%,440px);
+  justify-self:center;
+  overflow:hidden;
+  border-radius:190px 190px 26px 26px;
+  box-shadow:0 22px 56px rgba(30,51,76,.08);
+}
+.guide-project-photo img{
+  width:100%;
+  height:610px;
+  object-fit:cover;
+  object-position:center 46%;
+  display:block;
+}
+.guide-project-copy{max-width:570px}
+.guide-project-copy .eyebrow{margin-bottom:16px}
+.guide-project-copy h2{
+  font-size:clamp(2.55rem,4vw,3.75rem);
+  line-height:1.02;
+  letter-spacing:-.018em;
+  margin-bottom:26px;
+  color:var(--navy,#1E334C);
+}
+.guide-project-copy h2 em{
+  display:block;
+  color:var(--mauve,#A36F8A);
+  font-weight:400;
+  margin-top:7px;
+}
+.guide-project-copy>p:not(.eyebrow){
+  color:var(--navy-soft,#405069);
+  line-height:1.82;
+  max-width:520px;
+  margin-bottom:14px;
+}
+.guide-project-copy .btn{margin-top:18px}
+@media(max-width:820px){
+  .guide-project{padding:76px 0 82px}
+  .guide-project-grid{grid-template-columns:1fr;gap:42px}
+  .guide-project-photo{width:min(88vw,450px)}
+  .guide-project-photo img{height:560px}
+  .guide-project-copy{text-align:center;margin:0 auto}
+  .guide-project-copy>p:not(.eyebrow){margin-left:auto;margin-right:auto}
+}
+@media(max-width:520px){
+  .guide-project{padding:62px 0 68px}
+  .guide-project-photo{border-radius:140px 140px 22px 22px}
+  .guide-project-photo img{height:480px}
+  .guide-project-copy h2{font-size:2.45rem}
 }
 </style>
 
@@ -1590,17 +1469,18 @@ html,body{max-width:100%;overflow-x:hidden}
 <body>
   <header class="topbar">
     <div class="shell nav">
-      <a class="brand" href="#accueil" aria-label="Au cœur d'elle — accueil">
+      <a class="brand" href="/index.html" aria-label="Au cœur d'elle — accueil">
         <span>
           <span class="brand-name">AU CŒUR D’ELLE</span>
           <span class="brand-sub">Revenir à soi · Exprimer son essence</span>
         </span>
       </a>
       <ul class="links">
-        <li><a class="active" href="#accueil">Accueil</a></li>
-        <li><a href="#approche">Mon approche</a></li>
-        <li><a href="#accompagnements">Accompagnements</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/index.html">Accueil</a></li>
+        <li><a href="/revenir-a-soi.html">Au cœur de toi</a></li>
+        <li><a class="active" href="/exprimer-son-essence.html">Exprimer son essence</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="/index.html#a-propos">À propos</a></li>
       </ul>
       <button class="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
       <a class="nav-cta" href="https://calendly.com/jennymoreau-contact/new-meeting">Prendre RDV&nbsp; ✦</a>
@@ -1608,112 +1488,141 @@ html,body{max-width:100%;overflow-x:hidden}
   </header>
 
   <main>
-    <section class="hero" id="accueil">
-      <div class="shell">
-        <div class="hero-layout">
-          <div class="hero-inner">
-            <h1 class="hero-title-one-line"><span>BIENVENUE</span> <em>À LA MAISON</em></h1>
-            <p class="hero-heart"><strong>Ici, on revient à l’essentiel.</strong></p>
-            <div class="hero-rule"><i></i></div>
-            <p class="hero-copy">Un espace pour revenir à toi, écouter la voix de ton cœur et créer les fondations qui t’aideront à te déployer.</p>
-            <a class="btn btn-primary" href="#approche">Découvrir mon approche <span>✦</span></a>
+    <section class="essence-hero" id="exprimer-son-essence">
+      <div class="shell essence-hero-layout">
+        <div class="essence-hero-copy">
+          <p class="eyebrow">AU CŒUR DE TON ENTREPRISE</p>
+          <h1>Exprimer son essence</h1>
+          <p class="essence-hero-sub">Donner forme à ce qui vit en toi.</p>
+          <p class="essence-hero-text">Un espace pour clarifier ce que tu portes en toi, trouver les mots, les couleurs et l’univers qui te ressemblent, puis le traduire en une présence en ligne magnétique.</p>
+          <a class="btn btn-primary" href="#accompagnement">Découvrir l’accompagnement <span>→</span></a>
+        </div>
+        <div class="essence-hero-visual" aria-hidden="true">
+          <div class="essence-hero-frame">
+            <img src="assets/cristal-hero-essence.jpg" alt="Cristal lumineux aux reflets chauds" loading="eager">
           </div>
-          <div class="hero-visual" aria-hidden="true">
-            <div class="hero-visual-frame"><img src="assets/espace-ame.jpg" alt=""></div>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="global-approach" id="approche">
-      <div class="shell global-approach-inner">
-        <p class="eyebrow center-title">Une approche subtile</p>
-        <h2>Revenir dans son cœur <em>pour mieux se déployer.</em></h2>
-        <div class="global-approach-copy">
-          <p>Il y a des moments où l’on s’éloigne de soi. On doute, on cherche les réponses à l’extérieur, on emprunte des chemins qui rassurent mais qui ne nous ressemblent pas vraiment.</p>
-          <p>Je t’accompagne à revenir vers la voix de ton cœur, à écouter ce qui fait véritablement sens pour lui donner une place dans ta vie personnelle comme professionnelle.</p>
-        </div>
-        <p class="approach-manifesto">Se déployer, ce n’est pas devenir quelqu’un d’autre.<br><strong>C’est donner de la place à celle que tu es déjà au fond de toi.</strong></p>
-      </div>
-    </section>
-
-    <section class="pathways" id="accompagnements" aria-labelledby="pathways-title">
+    <section class="essence-branch">
       <div class="shell">
-        <div class="pathways-heading">
-          <p class="eyebrow">Au cœur de toi, au cœur de ton entreprise</p>
-          <h2 id="pathways-title">Deux espaces complémentaires pour déployer tes ailes.</h2>
+        <div class="essence-branch-heading">
+          <p class="eyebrow">UN PARCOURS EN TROIS ÉTAPES</p>
+          <h2>De l’essence à l’incarnation.</h2>
         </div>
-        <div class="pathways-grid">
-          <article class="pathway pathway-self">
-            <div class="pathway-image"><img src="assets/revenir-a-soi-index.jpg" alt="Jenny dans un moment de retour à soi" loading="lazy"></div>
-            <div class="pathway-content">
-              <span class="pathway-num">01</span>
-              <h3>REVENIR À SOI</h3>
-              <p class="pathway-kicker">Renouer avec ta sécurité intérieure.</p>
-              <p>Pour les femmes qui ressentent le besoin de mieux comprendre ce qui se vit en elles, de revenir au corps et de retrouver davantage de sécurité pour s’écouter et prendre leur place dans le monde.</p>
-              <a href="/revenir-a-soi.html">Découvrir l’accompagnement <span>→</span></a>
+        <div class="facet-grid essence-facets">
+          <article class="facet"><div class="sigil"><svg viewBox="0 0 40 40"><path d="M20 3 28 13 25 32 20 37 15 32 12 13Z"/><path d="m12 13 8 9 8-9M20 3v34"/></svg></div><h3>Essence</h3><p class="facet-kicker">Revenir à la source</p><p>Te relier à l’essence de ton être et de ton entreprise.</p></article>
+          <article class="facet"><div class="sigil"><svg viewBox="0 0 40 40"><path d="M5 13h30L20 35Z"/><path d="m5 13 8-8h14l8 8M13 5l7 30 7-30"/></svg></div><h3>Traduction</h3><p class="facet-kicker">Donner forme à l’invisible</p><p>Traduire la fréquence de ton projet en mots, en images, en couleurs et en offres.</p></article>
+          <article class="facet"><div class="sigil"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="7"/><path d="M20 2v9M20 29v9M2 20h9M29 20h9M7 7l7 7M26 26l7 7M33 7l-7 7M14 26l-7 7"/></svg></div><h3>Incarnation</h3><p class="facet-kicker">Créer la rencontre</p><p>Créer un univers digital qui te ressemble, transmet ce que tu portes et permet aux bonnes personnes de se reconnaître dans ton projet.</p></article>
+        </div>
+        <div class="offers-title branch-offers-title" id="accompagnement"><p class="eyebrow">L’accompagnement</p><h2>Deux façons de donner vie à ton projet.</h2></div>
+        <div class="offer-grid offer-grid-duo">
+          <article class="offer offer-boussole"><img class="offer-image" src="assets/boussole-workspace.webp" alt="Boussole posée sur un espace de travail" loading="lazy"><div class="offer-body"><div class="offer-num">BOUSSOLE</div><h3>Clarifier la direction</h3><p>Une séance pour prendre de la hauteur sur ton projet, t’y relier, clarifier ton message, ton positionnement, puis repartir avec une vision plus nette de la suite.</p><div class="price-label">Pour faire le point avant de créer</div><a class="more" href="https://calendly.com/jennymoreau-contact/new-meeting">Je veux faire le point ✦</a></div></article>
+          <article class="offer offer-incarnation"><img class="offer-image" src="assets/incarnation-workspace.webp" alt="Création d’une identité de marque Au cœur d’elle" loading="lazy"><div class="offer-body"><div class="offer-num">INCARNATION</div><h3>Donner forme</h3><p>Un accompagnement complet pour clarifier ton message, structurer ta présence et créer un site vitrine qui te ressemble.</p><div class="price-label">Accompagnement personnalisé</div><div class="price">1 500 € <small style="font:400 .66rem 'DM Sans';color:#77748a">· ou 2 × 750 €</small></div><a class="more" href="/questionnaire.html">Je veux donner vie à mon projet ✦</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="realisations">
+      <div class="shell">
+        <div class="portfolio-intro">
+          <p class="eyebrow">Quelques réalisations</p>
+          <h2>De l’essence à la forme.</h2>
+          <p>Chaque projet porte une fréquence, une histoire, une manière unique d’habiter le monde. Je viens à sa rencontre pour lui donner une expression digitale qui lui ressemble.</p>
+        </div>
+
+        <article class="project project-nathalie">
+          <div class="project-visual">
+            <div class="device-scene">
+                <div class="laptop">
+                  <div class="laptop-screen"><img src="assets/nathalie-site.webp" alt="Aperçu du site Nathalie Gaignard" loading="lazy"></div>
+                  <div class="laptop-base"></div>
+                </div>
+                <div class="phone">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen"><img src="assets/nathalie-site-mobile.webp" alt="Aperçu mobile du site Nathalie Gaignard" loading="lazy"></div>
+                </div>
+                <a class="mockup-link" href="https://www.nathaliegaignard.com" target="_blank" rel="noopener">Voir le site ↗</a>
+              </div>
+          </div>
+          <div class="project-copy">
+            <div class="project-number">01 · NATHALIE GAIGNARD</div>
+            <h3>La présence et la simplicité au cœur de son activité</h3>
+            <div class="project-block">
+              <span>L’intention</span>
+              <p>Créer un site minimaliste et sobre, qui reflète la présence de Nathalie et sa posture en tant que thérapeute.</p>
             </div>
-          </article>
-          <article class="pathway pathway-essence">
-            <div class="pathway-image"><img src="assets/incarnation-workspace.webp" alt="Création d’un univers de marque et d’une charte graphique" loading="lazy"></div>
-            <div class="pathway-content">
-              <span class="pathway-num">02</span>
-              <h3>EXPRIMER SON ESSENCE</h3>
-              <p class="pathway-kicker">Donner forme à ce qui vit en toi.</p>
-              <p>Pour les entrepreneures qui souhaitent clarifier ce qu’elles portent en elles, trouver les mots, les couleurs et l’univers qui leur ressemblent, puis le traduire en une présence en ligne magnétique.</p>
-              <a href="/exprimer-son-essence.html">Découvrir cet univers <span>→</span></a>
+            <div class="project-block">
+              <span>La traduction</span>
+              <p>Un univers épuré et sensible, pensé pour laisser de l’espace à sa présence, rendre ses accompagnements lisibles et permettre de ressentir son approche sans surcharger le message.</p>
             </div>
-          </article>
-        </div>
+            <a class="project-link" href="https://www.nathaliegaignard.com" target="_blank" rel="noopener">Visiter le site ↗</a>
+            <div class="project-testimonial">
+              <div class="testimonial-mark">“</div>
+              <blockquote>« Jenny ne construit pas seulement un site : c'est un accompagnement personnalisé pour vous mettre en lumière, ainsi que vos compétences. Si vous êtes thérapeute et que vous avez envie de franchir le pas, comme moi, vous pouvez la contacter en toute confiance. Elle a également réalisé mes cartes de visite et mes flyers. Merci Jenny pour ce site et cet accompagnement. »</blockquote>
+              <div class="testimonial-person">
+                <span class="testimonial-initial">N</span>
+                <div><strong>Nathalie</strong><small>Thérapeute · <a href="https://www.nathaliegaignard.com/" target="_blank" rel="noopener">nathaliegaignard.com ↗</a></small></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project project-reconnexion">
+          <div class="project-copy">
+            <div class="project-number">02 · ACADÉMIE RECONNEXION</div>
+            <h3>Entre nature, science et conscience.</h3>
+            <div class="project-block">
+              <span>L’intention</span>
+              <p>Créer un univers profondément relié à la nature et à la dimension spirituelle portée par Suzie, tout en conservant l’ancrage et la crédibilité nécessaires pour s’adresser également aux professionnels de la santé et de l’éducation.</p>
+            </div>
+            <div class="project-block">
+              <span>La traduction</span>
+              <p>Une identité vivante et colorée, inspirée de la nature, où la couleur apporte le dynamisme propre à Suzie. Un univers pensé pour faire cohabiter sensibilité, spiritualité et rigueur scientifique.</p>
+            </div>
+            <a class="project-link" href="https://www.academie-reconnexion.com" target="_blank" rel="noopener">Visiter le site ↗</a>
+            <div class="project-testimonial">
+              <div class="testimonial-mark">“</div>
+              <blockquote>« Jenny est de ces rares personnes qui allient compétence, initiative et qualité de présence. Elle saisit avec finesse les besoins et les traduit en actions concrètes, structurées et pertinentes. Faire appel à Jenny, c'est s'offrir bien plus qu'un service : c'est choisir une collaboration solide, intelligente et profondément soutenante. »</blockquote>
+              <div class="testimonial-person">
+                <span class="testimonial-initial">S</span>
+                <div><strong>Suzie Rochefort</strong><small>Psychologue · Fondatrice de l’Académie Reconnexion · <a href="https://www.academie-reconnexion.com/" target="_blank" rel="noopener">academie-reconnexion.com ↗</a></small></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-visual">
+            <div class="device-scene">
+                <div class="laptop">
+                  <div class="laptop-screen"><img src="assets/academie-site.webp" alt="Aperçu du site Académie Reconnexion" loading="lazy"></div>
+                  <div class="laptop-base"></div>
+                </div>
+                <div class="phone">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen"><img src="assets/academie-site-mobile.webp" alt="Aperçu mobile du site Académie Reconnexion" loading="lazy"></div>
+                </div>
+                <a class="mockup-link" href="https://www.academie-reconnexion.com" target="_blank" rel="noopener">Voir le site ↗</a>
+              </div>
+          </div>
+        </article>
       </div>
     </section>
 
-
-
-
-    <section class="about-home" id="a-propos" aria-labelledby="about-home-title">
-      <div class="shell about-home-grid">
-        <div class="about-home-photo">
-          <img src="assets/jenny-accompagnement.webp" alt="Jenny Moreau-Sonko, fondatrice d’Au cœur d’elle" loading="lazy">
-        </div>
-        <div class="about-home-copy">
-          <p class="eyebrow">À propos</p>
-          <h2 id="about-home-title">Je suis Jenny.</h2>
-          <p>Les doutes, les peurs d’oser être soi-même, de prendre pleinement sa place… <strong>ça me connaît.</strong></p>
-          <p>Pendant longtemps, j’ai cherché à comprendre qui j’étais, ce que je faisais ici-bas. Pendant longtemps, je me suis cachée.</p>
-          <p>Et puis la vie et l’expérience m’ont montré que la sécurité intérieure n’est pas toujours innée : <strong>elle se construit, un pas après l’autre.</strong></p>
-          <p>C’est en revenant dans mon cœur, reliée à mon âme, que j’ai appris à faire des choix différents. Non pas sans peur, mais <strong>avec la peur.</strong></p>
-          <p>Se relier à notre essence est pour moi essentiel pour mieux s’incarner et vivre une vie épanouissante.</p>
-          <p>Aujourd’hui, c’est avec une grande joie que je te guide à ton tour pour écouter ta voix, celle de ton cœur, et <strong>créer les fondations qui te permettront de prendre ton envol.</strong></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="newsletter-home" id="contact" aria-labelledby="newsletter-title">
-      <div class="shell newsletter-inner">
-        <p class="eyebrow">Restons en lien</p>
-        <h2 id="newsletter-title">Quelques mots, directement dans ta boîte mail.</h2>
-        <p class="newsletter-intro">Inscris-toi ici pour recevoir les nouvelles d’Au cœur d’elle.</p>
-        <div id="error-message" class="newsletter-message newsletter-message-error" role="alert">Nous n’avons pas pu confirmer ton inscription. Vérifie les informations saisies et réessaie.</div>
-        <div id="success-message" class="newsletter-message newsletter-message-success" role="status">Ton inscription est confirmée. Merci et bienvenue 🤍</div>
-        <form id="sib-form" class="newsletter-form" action="https://a1a6ccb8.sibforms.com/serve/MUIFAF9ORdfk5YhtU6xFFT1vzbZYtcTmIhS7sIQ3YTzs1QMqKG4tuLqxFONqi62hxDnInRi1dJXNyd3C9OPvlbLqZsdTGOTyCZUpF2mTHbnYWCr9IoWKQn9lheGocQzC3byfG5hodgy6Gyi3GsPK17cK3ew3bm68x8W-W-njfod5UYzLDhdBzIGFjy22Sx0greZfeE9uwESh8cyT5w==" method="POST" data-type="subscription">
-          <label class="sr-only" for="PRENOM">Ton prénom</label>
-          <input id="PRENOM" name="PRENOM" type="text" maxlength="200" autocomplete="given-name" placeholder="Ton prénom" required data-required="true">
-          <label class="sr-only" for="EMAIL">Ton adresse e-mail</label>
-          <input id="EMAIL" name="EMAIL" type="email" autocomplete="email" placeholder="Ton adresse e-mail" required data-required="true">
-          <button type="submit">Je m’inscris</button>
-          <label class="newsletter-consent" for="OPT_IN">
-            <input id="OPT_IN" name="OPT_IN" type="checkbox" value="1" required>
-            <span>J’accepte de recevoir les e-mails d’Au cœur d’elle et confirme avoir pris connaissance de la politique de confidentialité et des mentions légales.</span>
-          </label>
-          <input type="text" name="email_address_check" value="" class="input--hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <input type="hidden" name="locale" value="fr">
-        </form>
-        <p class="newsletter-note">Tu peux te désinscrire à tout moment grâce au lien présent dans chaque e-mail.</p>
-      </div>
-    </section>
+<section class="guide-project" aria-labelledby="guide-project-title">
+  <div class="shell guide-project-grid">
+    <div class="guide-project-photo">
+      <img src="assets/jenny-accompagnement.webp" alt="Jenny Moreau-Sonko, accompagnante et créatrice d’univers digitaux" loading="lazy">
+    </div>
+    <div class="guide-project-copy">
+      <p class="eyebrow">Une présence à tes côtés</p>
+      <h2 id="guide-project-title">Je ne crée pas seulement ton site.<br><em>Je viens à la rencontre de ton univers.</em></h2>
+      <p>J’allie intuition, création et expertise digitale pour t’aider à créer une communication alignée et magnétique.</p>
+      <p>Un accompagnement profondément humain pour donner vie à une présence digitale qui te ressemble et qui rayonne.</p>
+      <a class="btn btn-primary" href="/questionnaire.html">Parler de mon projet <span>✦</span></a>
+    </div>
+  </div>
+</section>
   </main>
-
   <footer class="site-footer">
     <div class="shell footer-inner">
       <div class="footer-brand">
@@ -1728,20 +1637,6 @@ html,body{max-width:100%;overflow-x:hidden}
       <div class="footer-bottom">© 2026 Jenny Moreau-Sonko · Tous droits réservés</div>
     </div>
   </footer>
-
-<script>
-window.REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays';
-window.LOCALE = 'fr';
-window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Les informations fournies ne sont pas valides. Vérifie le format du champ et réessaie.";
-window.REQUIRED_ERROR_MESSAGE = "Tu dois renseigner ce champ.";
-window.GENERIC_INVALID_MESSAGE = "Les informations fournies ne sont pas valides. Vérifie le format du champ et réessaie.";
-window.INVALID_NUMBER = "Les informations fournies ne sont pas valides.";
-window.INVALID_DATE = "Veuillez saisir une date valide";
-window.REQUIRED_MULTISELECT_MESSAGE = 'Veuillez choisir au moins une option';
-window.translation = {common:{selectedList:'{quantity} liste sélectionnée',selectedLists:'{quantity} listes sélectionnées',selectedOption:'{quantity} sélectionné',selectedOptions:'{quantity} sélectionnés'}};
-var AUTOHIDE = Boolean(0);
-</script>
-<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 
 <script id="v138-mobile-nav">
 (function(){
