@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Revenir à soi | Au cœur d’elle</title>
+  <title>Au cœur de toi | Sécurité intérieure · Au cœur d’elle</title>
   <meta name="description" content="Un accompagnement individuel pour mieux comprendre ce qui se vit en toi, revenir au corps et renouer avec ta sécurité intérieure.">
   <meta name="theme-color" content="#1E334C">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -202,7 +202,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="shell nav">
       <a class="brand" href="index.html" aria-label="Au cœur d’elle — accueil"><span><span class="brand-name">AU CŒUR D’ELLE</span><span class="brand-sub">Revenir à soi · Exprimer son essence</span></span></a>
       <nav class="links" aria-label="Navigation principale">
-        <a href="index.html">Accueil</a><a class="active" href="revenir-a-soi.html">Revenir à soi</a><a href="exprimer-son-essence.html">Exprimer son essence</a><a href="index.html#a-propos">À propos</a>
+        <a href="index.html">Accueil</a><a class="active" href="revenir-a-soi.html">Au cœur de toi</a><a href="exprimer-son-essence.html">Au cœur de ton entreprise</a><a href="index.html#a-propos">À propos</a>
       </nav>
       <button class="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
       <a class="nav-cta" href="#accompagnement">Prendre RDV</a>
@@ -275,8 +275,6 @@ html,body{max-width:100%;overflow-x:hidden}
   var toggle=document.querySelector('.mobile-menu-toggle');
   var menu=document.querySelector('.nav > .links');
   if(!toggle||!menu)return;
-  var desktopCta=document.querySelector('.nav > .nav-cta');
-  if(desktopCta&&!menu.querySelector('.mobile-menu-cta')){var c=desktopCta.cloneNode(true);c.classList.add('mobile-menu-cta');c.classList.remove('nav-cta');c.style.marginTop='8px';menu.appendChild(c);}
   function closeMenu(){menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
   toggle.addEventListener('click',function(){var open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));menu.classList.toggle('is-open',!open);});
   menu.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu();});

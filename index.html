@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Au cœur d’elle | Identité de marque & communication digitale</title>
+  <title>Au cœur d’elle | Revenir à soi · Exprimer son essence</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
@@ -16,13 +16,13 @@
   <!-- Partage social -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
-  <meta property="og:title" content="Au cœur d’elle | Identité de marque &amp; communication digitale">
+  <meta property="og:title" content="Au cœur d’elle | Revenir à soi · Exprimer son essence">
   <meta property="og:description" content="Identité de marque, création de site et communication digitale pour les entrepreneures qui souhaitent donner une forme juste, sensible et cohérente à leur univers.">
   <meta property="og:site_name" content="Au cœur d’elle">
   <meta property="og:image" content="/assets/hero-cristal.webp">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Au cœur d’elle | Identité de marque &amp; communication digitale">
+  <meta name="twitter:title" content="Au cœur d’elle | Revenir à soi · Exprimer son essence">
   <meta name="twitter:description" content="Identité de marque, création de site et communication digitale pour les entrepreneures qui souhaitent donner une forme juste, sensible et cohérente à leur univers.">
   <meta name="twitter:image" content="/assets/hero-cristal.webp">
 
@@ -1444,6 +1444,14 @@ h1,h2,h3{color:var(--navy)}
 }
 
 .newsletter-consent{grid-column:1/-1;display:flex;align-items:flex-start;gap:10px;max-width:760px;margin:7px auto 0;text-align:left;color:#6f6970;font:400 .72rem/1.55 'DM Sans',sans-serif}.newsletter-consent input{width:16px!important;min-height:16px!important;height:16px;margin:2px 0 0;padding:0;border-radius:4px;flex:0 0 auto;accent-color:var(--mauve,#A36F8A)}.newsletter-message{display:none;max-width:700px;margin:0 auto 20px;padding:13px 18px;border-radius:16px;font:400 .82rem/1.5 'DM Sans',sans-serif}.newsletter-message-error{background:#fff0f0;color:#7a3838}.newsletter-message-success{background:#f0f7f2;color:#365d45}.input--hidden{display:none!important}
+.newsletter-form .newsletter-field,.newsletter-form .newsletter-submit{min-width:0}
+.newsletter-form .form__entry,.newsletter-form .form__label-row,.newsletter-form .entry__field{height:100%;margin:0;padding:0}
+.newsletter-form .entry__error{display:none;grid-column:1/-1;margin:6px 8px 0;font:400 .72rem/1.4 'DM Sans',sans-serif;color:#7a3838;background:transparent}
+.newsletter-form .newsletter-submit button{width:100%;height:100%}
+.newsletter-form .newsletter-submit .icon{display:none;width:16px;height:16px;fill:currentColor;margin-right:8px}
+.newsletter-consent-wrap{grid-column:1/-1}
+.newsletter-consent-wrap .form__entry,.newsletter-consent-wrap .form__label-row,.newsletter-consent-wrap .entry__choice{height:auto}
+.sib-form-message-panel{display:none}
 </style>
 
 <style id="v99-responsive-pass">
@@ -1481,7 +1489,7 @@ h1,h2,h3{color:var(--navy)}
   .about-home-copy{max-width:680px!important;margin:0 auto!important;text-align:left!important;}
   .newsletter-home{padding:72px 0 76px!important;}
   .newsletter-form{grid-template-columns:1fr 1fr!important;max-width:720px!important;}
-  .newsletter-form button{grid-column:1/-1!important;width:100%!important;}
+  .newsletter-form .newsletter-submit{grid-column:1/-1!important;width:100%!important}.newsletter-form button{width:100%!important;}
   .site-footer .footer-inner{gap:24px!important;}
 }
 
@@ -1538,7 +1546,7 @@ h1,h2,h3{color:var(--navy)}
   .newsletter-intro{font-size:.92rem!important;margin-bottom:24px!important;}
   .newsletter-form{grid-template-columns:1fr!important;gap:10px!important;}
   .newsletter-form input,.newsletter-form button{min-height:52px!important;}
-  .newsletter-form button{grid-column:auto!important;}
+  .newsletter-form .newsletter-submit{grid-column:auto!important}.newsletter-form button{grid-column:auto!important;}
   .newsletter-consent{font-size:.69rem!important;line-height:1.5!important;margin-top:8px!important;}
   .newsletter-note{font-size:.68rem!important;}
 
@@ -1600,7 +1608,8 @@ html,body{max-width:100%;overflow-x:hidden}
       <ul class="links">
         <li><a class="active" href="#accueil">Accueil</a></li>
         <li><a href="#approche">Mon approche</a></li>
-        <li><a href="#accompagnements">Accompagnements</a></li>
+        <li><a href="revenir-a-soi.html">Au cœur de toi</a></li>
+        <li><a href="exprimer-son-essence.html">Au cœur de ton entreprise</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
@@ -1695,21 +1704,54 @@ html,body{max-width:100%;overflow-x:hidden}
         <p class="eyebrow">Restons en lien</p>
         <h2 id="newsletter-title">Quelques mots, directement dans ta boîte mail.</h2>
         <p class="newsletter-intro">Inscris-toi ici pour recevoir les nouvelles d’Au cœur d’elle.</p>
-        <div id="error-message" class="newsletter-message newsletter-message-error" role="alert">Nous n’avons pas pu confirmer ton inscription. Vérifie les informations saisies et réessaie.</div>
-        <div id="success-message" class="newsletter-message newsletter-message-success" role="status">Ton inscription est confirmée. Merci et bienvenue 🤍</div>
-        <form id="sib-form" class="newsletter-form" action="https://a1a6ccb8.sibforms.com/serve/MUIFAF9ORdfk5YhtU6xFFT1vzbZYtcTmIhS7sIQ3YTzs1QMqKG4tuLqxFONqi62hxDnInRi1dJXNyd3C9OPvlbLqZsdTGOTyCZUpF2mTHbnYWCr9IoWKQn9lheGocQzC3byfG5hodgy6Gyi3GsPK17cK3ew3bm68x8W-W-njfod5UYzLDhdBzIGFjy22Sx0greZfeE9uwESh8cyT5w==" method="POST" data-type="subscription">
-          <label class="sr-only" for="PRENOM">Ton prénom</label>
-          <input id="PRENOM" name="PRENOM" type="text" maxlength="200" autocomplete="given-name" placeholder="Ton prénom" required data-required="true">
-          <label class="sr-only" for="EMAIL">Ton adresse e-mail</label>
-          <input id="EMAIL" name="EMAIL" type="email" autocomplete="email" placeholder="Ton adresse e-mail" required data-required="true">
-          <button type="submit">Je m’inscris</button>
-          <label class="newsletter-consent" for="OPT_IN">
-            <input id="OPT_IN" name="OPT_IN" type="checkbox" value="1" required>
-            <span>J’accepte de recevoir les e-mails d’Au cœur d’elle et confirme avoir pris connaissance de la politique de confidentialité et des mentions légales.</span>
-          </label>
-          <input type="text" name="email_address_check" value="" class="input--hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <input type="hidden" name="locale" value="fr">
-        </form>
+        <div id="sib-form-container" class="sib-form-container">
+          <div id="error-message" class="sib-form-message-panel newsletter-message newsletter-message-error" role="alert">
+            <div class="sib-form-message-panel__text sib-form-message-panel__text--center"><span class="sib-form-message-panel__inner-text">Nous n’avons pas pu confirmer ton inscription. Vérifie les informations saisies et réessaie.</span></div>
+          </div>
+          <div id="success-message" class="sib-form-message-panel newsletter-message newsletter-message-success" role="status">
+            <div class="sib-form-message-panel__text sib-form-message-panel__text--center"><span class="sib-form-message-panel__inner-text">Ton inscription est confirmée. Merci et bienvenue 🤍</span></div>
+          </div>
+          <form id="sib-form" class="newsletter-form" action="https://a1a6ccb8.sibforms.com/serve/MUIFAF9ORdfk5YhtU6xFFT1vzbZYtcTmIhS7sIQ3YTzs1QMqKG4tuLqxFONqi62hxDnInRi1dJXNyd3C9OPvlbLqZsdTGOTyCZUpF2mTHbnYWCr9IoWKQn9lheGocQzC3byfG5hodgy6Gyi3GsPK17cK3ew3bm68x8W-W-njfod5UYzLDhdBzIGFjy22Sx0greZfeE9uwESh8cyT5w==" method="POST" data-type="subscription">
+            <div class="sib-input sib-form-block newsletter-field">
+              <div class="form__entry entry_block">
+                <div class="form__label-row"><div class="entry__field">
+                  <label class="sr-only" for="PRENOM">Ton prénom</label>
+                  <input class="input" id="PRENOM" name="PRENOM" type="text" maxlength="200" autocomplete="given-name" placeholder="Ton prénom" required data-required="true">
+                </div></div>
+                <label class="entry__error entry__error--primary"></label>
+              </div>
+            </div>
+            <div class="sib-input sib-form-block newsletter-field">
+              <div class="form__entry entry_block">
+                <div class="form__label-row"><div class="entry__field">
+                  <label class="sr-only" for="EMAIL">Ton adresse e-mail</label>
+                  <input class="input" id="EMAIL" name="EMAIL" type="email" autocomplete="email" placeholder="Ton adresse e-mail" required data-required="true">
+                </div></div>
+                <label class="entry__error entry__error--primary"></label>
+              </div>
+            </div>
+            <div class="sib-form-block newsletter-submit">
+              <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" aria-hidden="true"><path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"></path></svg>
+                Je m’inscris
+              </button>
+            </div>
+            <div class="sib-optin sib-form-block newsletter-consent-wrap">
+              <div class="form__entry entry_mcq">
+                <div class="form__label-row"><div class="entry__choice">
+                  <label class="newsletter-consent" for="OPT_IN">
+                    <input class="input_replaced" id="OPT_IN" name="OPT_IN" type="checkbox" value="1" required data-required="true">
+                    <span class="checkbox checkbox_tick_positive" aria-hidden="true"></span>
+                    <span>J’accepte de recevoir les e-mails d’Au cœur d’elle et confirme avoir pris connaissance de la politique de confidentialité et des mentions légales.</span>
+                  </label>
+                </div></div>
+                <label class="entry__error entry__error--primary"></label>
+              </div>
+            </div>
+            <input type="text" name="email_address_check" value="" class="input--hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="locale" value="fr">
+          </form>
+        </div>
         <p class="newsletter-note">Tu peux te désinscrire à tout moment grâce au lien présent dans chaque e-mail.</p>
       </div>
     </section>
@@ -1749,8 +1791,6 @@ var AUTOHIDE = Boolean(0);
   var toggle=document.querySelector('.mobile-menu-toggle');
   var menu=document.querySelector('.nav > .links');
   if(!toggle||!menu)return;
-  var desktopCta=document.querySelector('.nav > .nav-cta');
-  if(desktopCta&&!menu.querySelector('.mobile-menu-cta')){var c=desktopCta.cloneNode(true);c.classList.add('mobile-menu-cta');c.classList.remove('nav-cta');c.style.marginTop='8px';menu.appendChild(c);}
   function closeMenu(){menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
   toggle.addEventListener('click',function(){var open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));menu.classList.toggle('is-open',!open);});
   menu.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu();});

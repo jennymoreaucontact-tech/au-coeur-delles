@@ -16,13 +16,13 @@
   <!-- Partage social -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
-  <meta property="og:title" content="Au cœur d’elle | Identité de marque &amp; communication digitale">
+  <meta property="og:title" content="Exprimer son essence | Au cœur de ton entreprise">
   <meta property="og:description" content="Identité de marque, création de site et communication digitale pour les entrepreneures qui souhaitent donner une forme juste, sensible et cohérente à leur univers.">
   <meta property="og:site_name" content="Au cœur d’elle">
   <meta property="og:image" content="/assets/hero-cristal.webp">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Au cœur d’elle | Identité de marque &amp; communication digitale">
+  <meta name="twitter:title" content="Exprimer son essence | Au cœur de ton entreprise">
   <meta name="twitter:description" content="Identité de marque, création de site et communication digitale pour les entrepreneures qui souhaitent donner une forme juste, sensible et cohérente à leur univers.">
   <meta name="twitter:image" content="/assets/hero-cristal.webp">
 
@@ -1479,7 +1479,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <ul class="links">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="revenir-a-soi.html">Au cœur de toi</a></li>
-        <li><a class="active" href="exprimer-son-essence.html">Exprimer son essence</a></li>
+        <li><a class="active" href="exprimer-son-essence.html">Au cœur de ton entreprise</a></li>
         <li><a href="#realisations">Réalisations</a></li>
         <li><a href="index.html#a-propos">À propos</a></li>
       </ul>
@@ -1644,8 +1644,6 @@ html,body{max-width:100%;overflow-x:hidden}
   var toggle=document.querySelector('.mobile-menu-toggle');
   var menu=document.querySelector('.nav > .links');
   if(!toggle||!menu)return;
-  var desktopCta=document.querySelector('.nav > .nav-cta');
-  if(desktopCta&&!menu.querySelector('.mobile-menu-cta')){var c=desktopCta.cloneNode(true);c.classList.add('mobile-menu-cta');c.classList.remove('nav-cta');c.style.marginTop='8px';menu.appendChild(c);}
   function closeMenu(){menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
   toggle.addEventListener('click',function(){var open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));menu.classList.toggle('is-open',!open);});
   menu.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu();});
