@@ -18,11 +18,11 @@
 <meta content="Exprimer son essence | Au cœur de ton entreprise" property="og:title"/>
 <meta content="Clarifie l’essence de ton projet, trouve les mots, les couleurs et l’univers qui te ressemblent, puis traduis-les en une présence en ligne magnétique." property="og:description"/>
 <meta content="Au cœur d’elle" property="og:site_name"/>
-<meta content="https://jennymoreausonko.com/assets/entreprise-cristal-paysage.webp" property="og:image"/>
+<meta content="https://jennymoreausonko.com/assets/hero-cristal.webp" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Exprimer son essence | Au cœur de ton entreprise" name="twitter:title"/>
 <meta content="Clarifie l’essence de ton projet, trouve les mots, les couleurs et l’univers qui te ressemblent, puis traduis-les en une présence en ligne magnétique." name="twitter:description"/>
-<meta content="https://jennymoreausonko.com/assets/entreprise-cristal-paysage.webp" name="twitter:image"/>
+<meta content="https://jennymoreausonko.com/assets/hero-cristal.webp" name="twitter:image"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
@@ -152,14 +152,14 @@
 
     /* TESTIMONIAL */
     .testimonial{position:relative;padding:38px 0 42px;background:linear-gradient(120deg,#fbf6f9,#f5eff7);overflow:hidden}
-    .testimonial::after{content:"";position:absolute;right:-18px;bottom:-40px;width:210px;height:210px;background:none;mix-blend-mode:multiply;opacity:.9}
+    .testimonial::after{content:"";position:absolute;right:-18px;bottom:-40px;width:210px;height:210px;background:url('assets/crystals.webp') center/cover no-repeat;mix-blend-mode:multiply;opacity:.9}
     .quote{position:relative;z-index:2;text-align:center;max-width:680px;margin:auto}
     .quote .eyebrow{font-size:.68rem}
     .quote blockquote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.32rem;line-height:1.35;margin:0 0 12px}
     .quote cite{font-style:normal;font-size:.7rem;letter-spacing:.19em;text-transform:uppercase}
 
     /* CTA */
-    .final{min-height:250px;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;background:linear-gradient(rgba(245,238,248,.38),rgba(226,239,245,.38))}
+    .final{min-height:250px;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;background:linear-gradient(rgba(245,238,248,.38),rgba(226,239,245,.38)),url('assets/footer-sea.webp') center/cover no-repeat}
     .final::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 16% 48%,rgba(255,255,255,.9),transparent 18%),linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.28))}
     .final-inner{position:relative;z-index:2;padding:42px 20px}
     .final h2{font-size:2.45rem;line-height:1.05;margin-bottom:17px}
@@ -1087,7 +1087,7 @@ h1,h2,h3{font-weight:500}
 <style id="v88-soul-hero">
 /* V88 — l’image de l’espace intérieur devient le Hero */
 .hero{background:#EDE2D6!important;min-height:780px!important;}
-.hero::before{content:""!important;position:absolute!important;inset:0!important;background:none!important;opacity:1!important;}
+.hero::before{content:""!important;position:absolute!important;inset:0!important;background:url('assets/espace-ame.jpg') center 46%/cover no-repeat!important;opacity:1!important;}
 .hero::after{content:""!important;position:absolute!important;inset:0!important;background:linear-gradient(90deg,rgba(252,250,247,.93) 0%,rgba(252,250,247,.78) 34%,rgba(252,250,247,.28) 58%,rgba(252,250,247,.06) 100%)!important;}
 .hero-inner{position:relative!important;z-index:4!important;max-width:600px!important;}
 .hero h1,.hero-heart strong,.hero-copy{color:#1E334C!important;}
@@ -1333,6 +1333,19 @@ h1,h2,h3{color:var(--navy)}
   .essence-branch{padding-top:66px!important}
 }
 </style>
+<style id="v146-business-recognition">
+.business-recognition{background:var(--cream-light);padding:104px 0 110px}
+.business-recognition-grid{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:82px;align-items:start;max-width:1080px}
+.business-recognition-copy .eyebrow{color:var(--mauve-deep);margin-bottom:17px}
+.business-recognition-copy h2{font-size:clamp(2.45rem,4vw,3.8rem);line-height:1.04;color:var(--navy);margin:0 0 28px}
+.business-recognition-copy p{color:var(--navy-soft);font-size:1rem;line-height:1.85;margin:0}
+.business-recognition-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--warm-line)}
+.business-recognition-list li{position:relative;margin:0;padding:20px 8px 20px 34px;border-bottom:1px solid var(--warm-line);color:var(--navy-soft);font-size:1rem;line-height:1.7}
+.business-recognition-list li::before{content:"";position:absolute;left:4px;top:28px;width:12px;height:12px;border-radius:50%}
+.business-recognition-list li::before{background:#C8DFF0;box-shadow:0 0 0 5px rgba(200,223,240,.28)}
+@media(max-width:900px){.business-recognition{padding:82px 0 88px}.business-recognition-grid{grid-template-columns:1fr;gap:46px}.business-recognition-copy{max-width:700px}}
+@media(max-width:560px){.business-recognition{padding:68px 0 72px}.business-recognition-grid{gap:36px}.business-recognition-copy h2{font-size:2.25rem}.business-recognition-copy p,.business-recognition-list li{font-size:.94rem}.business-recognition-list li{padding:17px 4px 17px 29px}.business-recognition-list li::before{left:1px;top:24px;width:11px;height:11px}}
+</style>
 <style id="v129-boussole-duo">
 /* V129 — Boussole + Incarnation : deux niveaux d'accompagnement */
 .offer-grid-duo{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:30px!important;align-items:stretch}
@@ -1348,6 +1361,25 @@ h1,h2,h3{color:var(--navy)}
 .offer-incarnation{border-top:3px solid var(--mauve)!important}
 .offer-boussole h3{color:var(--navy)!important}
 .offer-incarnation h3{color:var(--mauve-deep)!important}
+.offer-boussole .offer-body>p{margin-bottom:15px}
+.boussole-details{margin:9px 0 16px;padding:17px 0 2px;border-top:1px solid var(--warm-line)}
+.boussole-details strong{display:block;margin-bottom:9px;color:var(--navy);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase}
+.boussole-details ul{list-style:none;margin:0;padding:0}
+.boussole-details li{position:relative;margin:0 0 7px;padding-left:19px;color:var(--navy-soft);font-size:.88rem;line-height:1.55}
+.boussole-details li::before{content:"";position:absolute;left:1px;top:.58em;width:7px;height:7px;border-radius:50%;background:#C8DFF0}
+.offer-boussole .price-label{margin-top:4px}
+.offer-incarnation .offer-body>p{margin-bottom:15px}
+.incarnation-disclosure{margin:16px 0 17px;border:1px solid var(--warm-line);border-radius:18px;background:rgba(255,255,255,.42);overflow:hidden}
+.incarnation-disclosure summary{position:relative;display:block;padding:16px 48px 16px 18px;cursor:pointer;color:var(--navy);font-size:.76rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;list-style:none}
+.incarnation-disclosure summary::-webkit-details-marker{display:none}
+.incarnation-disclosure summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-52%);font-size:1.25rem;font-weight:300;color:var(--mauve-deep);transition:transform .2s ease}
+.incarnation-disclosure[open] summary::after{transform:translateY(-52%) rotate(45deg)}
+.incarnation-details{margin:0;padding:0 18px 5px;border-top:1px solid var(--warm-line)}
+.incarnation-detail{padding:15px 0;border-bottom:1px solid var(--warm-line)}
+.incarnation-detail strong{display:block;margin-bottom:5px;color:var(--mauve-deep);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase}
+.incarnation-detail p{margin:0!important;color:var(--navy-soft);font-size:.88rem!important;line-height:1.58!important}
+.incarnation-note{margin:13px 0 3px!important;color:#77748a!important;font-size:.78rem!important;font-style:italic;line-height:1.5!important}
+.offer-incarnation .price-label{margin-top:13px}
 @media(max-width:820px){
   .offer-grid-duo{grid-template-columns:1fr!important;gap:28px!important}
   .offer-grid-duo .offer-image{height:240px!important}
@@ -1485,7 +1517,7 @@ html,body{max-width:100%;overflow-x:hidden}
 <p class="eyebrow">AU CŒUR DE TON ENTREPRISE</p>
 <h1>Exprimer son essence</h1>
 <p class="essence-hero-sub">Donner forme à ce qui vit en toi.</p>
-<p class="essence-hero-text">Un espace pour clarifier ce que tu portes en toi, trouver les mots, les couleurs et l’univers qui te ressemblent, puis le traduire en une présence en ligne magnétique.</p>
+<p class="essence-hero-text">Un espace pour clarifier la direction de ton entreprise, trouver les mots, les couleurs et l’univers qui la représentent, pour créer une présence en ligne cohérente et magnétique.</p>
 <a class="btn btn-primary" href="#accompagnement">Découvrir l’accompagnement <span>→</span></a>
 </div>
 <div aria-hidden="true" class="essence-hero-visual">
@@ -1495,6 +1527,22 @@ html,body{max-width:100%;overflow-x:hidden}
 </div>
 </div>
 </section>
+<section class="business-recognition" aria-labelledby="business-recognition-title">
+<div class="shell business-recognition-grid">
+<div class="business-recognition-copy">
+<p class="eyebrow">PEUT-ÊTRE QUE TU TE RECONNAIS ICI</p>
+<h2 id="business-recognition-title">Ton entreprise a évolué, mais ta communication ne raconte pas encore pleinement qui tu es.</h2>
+<p>Tu as acquis de nombreux outils, développé tes compétences et enrichi ta manière d’accompagner. Pourtant, lorsqu’il s’agit de parler de toi, de ton message ou de ce qui rend ton approche unique, les mots deviennent plus difficiles à trouver.</p>
+</div>
+<ul class="business-recognition-list">
+<li>Tu sais faire beaucoup de choses, mais tu as du mal à expliquer clairement ce que tu proposes.</li>
+<li>Tu te présentes principalement à travers tes outils ou tes formations, sans parvenir à mettre en lumière ta propre manière d’accompagner.</li>
+<li>Ton activité a évolué et ta communication ne correspond plus à la femme et à l’entrepreneure que tu es aujourd’hui.</li>
+<li>Tu aimerais créer ton site internet mais tu ne sais pas comment mettre en forme ton univers.</li>
+<li>Tu souhaites créer ou refaire ton site, tout en sentant que sa réalisation demande d’abord de clarifier la direction de ton entreprise.</li>
+</ul>
+</div>
+</section>
 <section class="essence-branch">
 <div class="shell">
 <div class="essence-branch-heading">
@@ -1502,14 +1550,14 @@ html,body{max-width:100%;overflow-x:hidden}
 <h2>De l’essence à l’incarnation.</h2>
 </div>
 <div class="facet-grid essence-facets">
-<article class="facet"><div class="sigil"><svg viewbox="0 0 40 40"><path d="M20 3 28 13 25 32 20 37 15 32 12 13Z"></path><path d="m12 13 8 9 8-9M20 3v34"></path></svg></div><h3>Essence</h3><p class="facet-kicker">Revenir à la source</p><p>Te relier à l’essence de ton être et de ton entreprise.</p></article>
-<article class="facet"><div class="sigil"><svg viewbox="0 0 40 40"><path d="M5 13h30L20 35Z"></path><path d="m5 13 8-8h14l8 8M13 5l7 30 7-30"></path></svg></div><h3>Traduction</h3><p class="facet-kicker">Donner forme à l’invisible</p><p>Traduire la fréquence de ton projet en mots, en images, en couleurs et en offres.</p></article>
-<article class="facet"><div class="sigil"><svg viewbox="0 0 40 40"><circle cx="20" cy="20" r="7"></circle><path d="M20 2v9M20 29v9M2 20h9M29 20h9M7 7l7 7M26 26l7 7M33 7l-7 7M14 26l-7 7"></path></svg></div><h3>Incarnation</h3><p class="facet-kicker">Créer la rencontre</p><p>Créer un univers digital qui te ressemble, transmet ce que tu portes et permet aux bonnes personnes de se reconnaître dans ton projet.</p></article>
+<article class="facet"><div class="sigil"><svg viewbox="0 0 40 40"><path d="M20 3 28 13 25 32 20 37 15 32 12 13Z"></path><path d="m12 13 8 9 8-9M20 3v34"></path></svg></div><h3>Essence</h3><p class="facet-kicker">Revenir à la source</p><p>Clarifier la direction de ton entreprise, ton positionnement, ton message et les personnes que tu souhaites accompagner.</p></article>
+<article class="facet"><div class="sigil"><svg viewbox="0 0 40 40"><path d="M5 13h30L20 35Z"></path><path d="m5 13 8-8h14l8 8M13 5l7 30 7-30"></path></svg></div><h3>Traduction</h3><p class="facet-kicker">Donner forme à l’invisible</p><p>Traduire cette direction en mots, en couleurs, en images et en offres pour construire un univers cohérent.</p></article>
+<article class="facet"><div class="sigil"><svg viewbox="0 0 40 40"><circle cx="20" cy="20" r="7"></circle><path d="M20 2v9M20 29v9M2 20h9M29 20h9M7 7l7 7M26 26l7 7M33 7l-7 7M14 26l-7 7"></path></svg></div><h3>Incarnation</h3><p class="facet-kicker">Créer la rencontre</p><p>Donner vie à cet univers à travers une présence en ligne claire et permettre aux bonnes personnes de se reconnaître dans ton projet.</p></article>
 </div>
 <div class="offers-title branch-offers-title" id="accompagnement"><p class="eyebrow">L’accompagnement</p><h2>Deux façons de donner vie à ton projet.</h2></div>
 <div class="offer-grid offer-grid-duo">
-<article class="offer offer-boussole"><img alt="Boussole et univers de travail pour clarifier son projet entrepreneurial" class="offer-image" loading="lazy" src="assets/boussole-workspace.webp"/><div class="offer-body"><div class="offer-num">BOUSSOLE</div><h3>Clarifier la direction</h3><p>Une séance pour prendre de la hauteur sur ton projet, t’y relier, clarifier ton message, ton positionnement, puis repartir avec une vision plus nette de la suite.</p><div class="price-label">Pour faire le point avant de créer</div><a class="more" href="https://buy.stripe.com/5kQeVdbbXa7Q7FEfW1afS0a">Je veux faire le point ✦</a></div></article>
-<article class="offer offer-incarnation"><img alt="Création d’une identité de marque Au cœur d’elle" class="offer-image" loading="lazy" src="assets/incarnation-workspace.webp"/><div class="offer-body"><div class="offer-num">INCARNATION</div><h3>Donner forme</h3><p>Un accompagnement complet pour clarifier ton message, structurer ta présence et créer un site vitrine qui te ressemble.</p><div class="price-label">Accompagnement personnalisé</div><div class="price">1 500 € <small style="font:400 .66rem 'DM Sans';color:#77748a">· ou 2 × 750 €</small></div><a class="more" href="questionnaire.html">Je veux donner vie à mon projet ✦</a></div></article>
+<article class="offer offer-boussole"><img alt="Boussole et univers de travail pour clarifier son projet entrepreneurial" class="offer-image" loading="lazy" src="assets/boussole-workspace.webp"/><div class="offer-body"><div class="offer-num">BOUSSOLE</div><h3>Clarifier la direction</h3><p>Une séance individuelle d’une heure pour faire le point sur là où tu en es aujourd’hui et la direction que tu souhaites prendre.</p><p>Ensemble, nous mettons des mots sur ce qui est présent pour toi, puis nous regardons les ressources et les premières actions qui peuvent t’aider à te mettre en mouvement vers la suite de ton projet.</p><div class="boussole-details"><strong>À l’issue de la séance, tu reçois :</strong><ul><li>L’enregistrement de notre échange</li><li>Des ressources adaptées à ce qui aura émergé</li><li>Des actions concrètes pour avancer dans la direction choisie</li></ul></div><div class="price-label">Pour retrouver une direction claire et te remettre en mouvement</div><div class="price">90 €</div><a class="more" href="https://buy.stripe.com/5kQeVdbbXa7Q7FEfW1afS0a">Je veux faire le point ✦</a></div></article>
+<article class="offer offer-incarnation"><img alt="Création d’une identité de marque Au cœur d’elle" class="offer-image" loading="lazy" src="assets/incarnation-workspace.webp"/><div class="offer-body"><div class="offer-num">INCARNATION</div><h3>Donner forme</h3><p>Un accompagnement personnalisé d’environ deux mois pour clarifier la direction de ton entreprise, construire ton identité visuelle et créer un site vitrine qui traduit pleinement ton univers.</p><p>Avant de commencer la création, nous prenons le temps d’aller à ta rencontre et celle de ton entreprise. Ton histoire, tes compétences, tes valeurs, ta manière d’accompagner et le message de ton entreprise deviennent les fondations de ta future présence en ligne.</p><details class="incarnation-disclosure"><summary>Voir ce qui est inclus</summary><div class="incarnation-details"><div class="incarnation-detail"><strong>Clarifier la direction</strong><p>Un travail d’introspection autour de ton histoire, de tes compétences et de tes valeurs, puis la clarification de ton positionnement, de ton message, de tes offres et des personnes auxquelles tu souhaites t’adresser.</p></div><div class="incarnation-detail"><strong>Créer ton univers visuel</strong><p>La création de ta palette, le choix des typographies, la direction visuelle générale et l’intégration de tes photographies ou la proposition d’images cohérentes avec ton univers.</p><p class="incarnation-note">La création d’un logo n’est pas comprise.</p></div><div class="incarnation-detail"><strong>Construire ton site</strong><p>Une page d’accueil, les pages de tes offres, une page « À propos » et une page « Contact ». Je te guide dans la rédaction et nous ajustons les textes ensemble. L’adaptation mobile, le référencement de base, la connexion du nom de domaine et la mise en ligne sont inclus.</p></div><div class="incarnation-detail"><strong>Après la mise en ligne</strong><p>Un tutoriel personnalisé pour modifier ton site si tu es à l’aise avec les outils technologiques, ainsi qu’un mois de suivi offert pour répondre à tes questions et t’accompagner dans la prise en main du site. Les interventions suivantes sont proposées au tarif de 50 € de l’heure.</p></div></div></details><div class="price-label">Tarif de lancement</div><div class="price">1 500 € <small style="font:400 .66rem 'DM Sans';color:#77748a">· ou 2 × 750 €</small></div><a class="more" href="questionnaire.html">Je veux donner vie à mon projet ✦</a></div></article>
 </div>
 </div>
 </section>
